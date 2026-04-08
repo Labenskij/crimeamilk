@@ -1,93 +1,114 @@
-# Черноморский молокозавод - Информационная доска
+# 📚 Центр документации
 
+[![GitLab](https://img.shields.io/badge/GitLab-Документация-orange?style=for-the-badge&logo=gitlab)](https://gitlab.com)
 
+## 📋 Оглавление
 
-## Getting started
+- [🏪 Инструкции для магазинов (Севастополь и Черноморск)](#-инструкции-для-магазинов)
+- [👥 Инструкции по отделам](#-инструкции-по-отделам)
+  - [📊 Бухгалтерам](#-бухгалтерам)
+  - [📦 Склад](#-склад)
+  - [🚀 Торговые представители](#-торговые-представители)
+  - [🏢 Корпоративные инструкции](#-корпоративные-инструкции)
+- [🆘 Критерии помощи](#-критерии-помощи)
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+### 🏢 Корпоративные инструкции
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+| Название инструкции | Описание |
+|---------------------|----------|
+| [Установка “Element”](https://docs.google.com/document/d/1mgGB3ItLeRpDQj8VBB-1A7uWBmu6Je0kGzL0TT8Yy_w/edit?tab=t.0) | Установка ‘Element’ на рабочие устройства для контакта внутри компании. |
+| [Скачать apk Excel](https://play.google.com/store/apps/details?id=com.microsoft.office.excel) | Софт, поддерживающий все версии и форматы Excel |
 
-## Add your files
+[⬆ Вернуться к оглавлению](#-оглавление)
 
-* [Create](https://docs.gitlab.com/user/project/repository/web_editor/#create-a-file) or [upload](https://docs.gitlab.com/user/project/repository/web_editor/#upload-a-file) files
-* [Add files using the command line](https://docs.gitlab.com/topics/git/add_files/#add-files-to-a-git-repository) or push an existing Git repository with the following command:
+---
 
-```
-cd existing_repo
-git remote add origin https://gitlab.com/bin.b/blacksea_dairyplant_information.git
-git branch -M main
-git push -uf origin main
-```
+## 🆘 Критерии помощи
 
-## Integrate with your tools
+| Проблема | Инструкция |
+|----------|-------------|
+| 🔌 Проблема с интернетом | [Памятка: Если пропал Интернет](https://docs.google.com/document/d/1pLvu54xe6Js9mj1GQ4TDmZ0ssAnWSRDdoHI4GXIht4Y/edit?tab=t.0) |
+| 🖥️ Не включается компьютер/касса | [Памятка: Если не включается компьютер](https://docs.google.com/document/d/1DKyFdpRjFpdtpwO05geGif5aqJj56F0dbkp4Mi77dkI/edit?tab=t.0) |
+| 🧾 Проблема/ошибки с кассовым оборудованием | [Памятка: Если проблемы с кассой](https://docs.google.com/document/d/1fRDftoQwThr-LPhsr2x2rpgmapKev8Iiym2Y679wRkI/edit?tab=t.0) |
 
-* [Set up project integrations](https://gitlab.com/bin.b/blacksea_dairyplant_information/-/settings/integrations)
+[⬆ Вернуться к оглавлению](#-оглавление)
 
-## Collaborate with your team
+---
 
-* [Invite team members and collaborators](https://docs.gitlab.com/user/project/members/)
-* [Create a new merge request](https://docs.gitlab.com/user/project/merge_requests/creating_merge_requests/)
-* [Automatically close issues from merge requests](https://docs.gitlab.com/user/project/issues/managing_issues/#closing-issues-automatically)
-* [Enable merge request approvals](https://docs.gitlab.com/user/project/merge_requests/approvals/)
-* [Set auto-merge](https://docs.gitlab.com/user/project/merge_requests/auto_merge/)
+## 📌 Как пользоваться этой документацией
 
-## Test and Deploy
+1. **Кликните по ссылке** - откроется документ Google Docs
+2. **Используйте оглавление** для быстрого перехода между разделами
+3. **Поиск по странице** (Ctrl+F) для быстрого поиска адреса или названия инструкции
 
-Use the built-in continuous integration in GitLab.
+---
 
-* [Get started with GitLab CI/CD](https://docs.gitlab.com/ci/quick_start/)
-* [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/user/application_security/sast/)
-* [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/topics/autodevops/requirements/)
-* [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/user/clusters/agent/)
-* [Set up protected environments](https://docs.gitlab.com/ci/environments/protected_environments/)
+---
 
-***
+## 🏪 Инструкции для магазинов
 
-# Editing this README
+> 📍 **Навигация по городам:** [Севастополь](#севастополь) | [Черноморск](#черноморск)
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+### Севастополь
 
-## Suggestions for a good README
+| ID | Адрес | Инструкция |
+|:---:|-------|-------------|
+| 1 | ул.Астана Кесаева, д.20 | [📄 Инструкция: Проблема с техникой?](https://docs.google.com/document/d/1u5h9A-lZt7LSHTsAuXtrziE-5SPWgK6IjQQsan4RmRY/edit?tab=t.0) |
+| 2 | пр-т Героев Сталинграда, д.21-А | [📄 Инструкция: Проблема с техникой?](https://docs.google.com/document/d/1bKZS06vTt1SVmgyigZEdI16nAOALD8DltKQ5jpiW9H0/edit?tab=t.0) |
+| 3 | пр-т Октябрьской Революции, д.89 | [📄 Инструкция: Проблема с техникой?](https://docs.google.com/document/d/1jNxzEgIQjWRGyxiqgsBsETM5nPHG6YQx2vCYGRvrcL8/edit?tab=t.0) |
+| 4 | ул.Тараса Шевченко, д.26 | [📄 Инструкция: Проблема с техникой?](https://docs.google.com/document/d/12zi8DP81A3dGbiGMe2Fg2UR9OP_U_nJfT-S5AeFAA0A/edit?tab=t.0) |
+| 5 | ул.Горпищенко, д.127 | [📄 Инструкция: Проблема с техникой?](https://docs.google.com/document/d/1x71cm1l7IvLhu7kpY43mx0MMiC5VPrYSItbLKZjSSAM/edit?tab=t.0) |
+| 6 | ул.Горпищенко, д.139 | [📄 Инструкция: Проблема с техникой?](https://docs.google.com/document/d/1x71cm1l7IvLhu7kpY43mx0MMiC5VPrYSItbLKZjSSAM/edit?tab=t.0) |
+| 7 | ул.Горпищенко, д.143 | [📄 Инструкция: Проблема с техникой?](https://docs.google.com/document/d/1x71cm1l7IvLhu7kpY43mx0MMiC5VPrYSItbLKZjSSAM/edit?tab=t.0) |
+| 8 | ул.Бориса Михайлова, д.11 | [📄 Инструкция: Проблема с техникой?](https://docs.google.com/document/d/1x71cm1l7IvLhu7kpY43mx0MMiC5VPrYSItbLKZjSSAM/edit?tab=t.0) |
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+### Черноморск
 
-## Name
-Choose a self-explaining name for your project.
+| ID | Адрес | Инструкция |
+|:---:|-------|-------------|
+| 1 | ул. Почтовая, д. 43, магазин «Алкомаркет Пятница» | [📄 Инструкция: Проблема с техникой?](https://docs.google.com/document/d/1yf7HQpdvY2PMAueTfC-QQq5-Rhg8Eb2jcUEjlHBrJzg/edit?tab=t.0) |
+| 2 | ул. Почтовая, д. 43, магазин №5 («Эконом») | [📄 Инструкция: Проблема с техникой?](https://docs.google.com/document/d/1yf7HQpdvY2PMAueTfC-QQq5-Rhg8Eb2jcUEjlHBrJzg/edit?tab=t.0) |
+| 3 | ул. Почтовая, д. 43, магазин №8 («Рыбный») | [📄 Инструкция: Проблема с техникой?](https://docs.google.com/document/d/1eF-T5f4CKJK486VEAjZUfK9X7CkM9rOp3KznZbUm3_Y/edit?tab=t.0) |
+| 4 | ул. Димитрова, д. 15, магазин №7 («Эконом») | [📄 Инструкция: Проблема с техникой?](https://docs.google.com/document/d/1bKZS06vTt1SVmgyigZEdI16nAOALD8DltKQ5jpiW9H0/edit?tab=t.0) |
+| 5 | ул. Кирова, д. 83, кафе «Burger Station» | [📄 Инструкция: Проблема с техникой?](https://docs.google.com/document/d/1yf7HQpdvY2PMAueTfC-QQq5-Rhg8Eb2jcUEjlHBrJzg/edit?tab=t.0) |
+| 6 | ул. Кирова, д. 85, магазин №6 («Эконом») | [📄 Инструкция: Проблема с техникой?](https://docs.google.com/document/d/1yf7HQpdvY2PMAueTfC-QQq5-Rhg8Eb2jcUEjlHBrJzg/edit?tab=t.0) |
+| 7 | ул. Ленина, д. 31, магазин №9 («Эконом») | [📄 Инструкция: Проблема с техникой?](https://docs.google.com/document/d/1-NtHTK4QuMYp7v7GYzvtzDHLdXSHaLK_EAjEZOxflZs/edit?tab=t.0) |
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+[⬆ Вернуться к оглавлению](#-оглавление)
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+---
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+## 👥 Инструкции по отделаам
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+### 📊 Бухгалтерам
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+| № | Название инструкции | Описание |
+|:---:|---------------------|----------|
+| 1 | [Альтернативный способ через сайт vetrf.ru](https://docs.google.com/document/d/1tmptt8Jdiq-K0DiFH5I9mQvgxUEpCmisOpTweNkYc4M/edit?tab=t.0#heading=h.eooa88ptunqf) | Инструкция по использованию альтернативного способа через официальный сайт ВетИС |
+| 2 | [Гашение ВСД](https://docs.google.com/document/d/19bBhOYxEh00odTcmVO0Zfoiijph0cxBZ7m3w7QzXgvo/edit?tab=t.0) | Инструкция по процедуре гашения ветеринарно-сопроводительных документов |
+| 3 | [Загрузка ВСД из Меркурий ХС в базу 1С](https://docs.google.com/document/d/1JBqIeTTfqvLfDjIvCI14FRPvKZ9FW34GX2Lm936z9kI/edit?tab=t.0) | Инструкция по загрузке данных из системы Меркурий в 1С |
+| 4 | [Загрузка площадки](https://docs.google.com/document/d/1WYYL9zgVaAiMgoL5QH-RO3rkJomdSb1QvT9STLa_994/edit?tab=t.0) | Инструкция по загрузке и настройке рабочих площадок |
+| 5 | [Запрос складского журнала](https://docs.google.com/document/d/1bRAcqCSAYc3SbWhxLEQvDd48DFVUFLh6yBLc5R8s7xQ/edit?tab=t.0) | Инструкция по формированию и получению складских журналов |
+| 6 | [Инвентаризация](https://docs.google.com/document/d/1V5d7xs7PTwWiBfi2EccRlumQ362IoG_J3gBxlUA5JGw/edit?tab=t.0) | Инструкция по проведению инвентаризации на предприятии |
+| 7 | [Оформление ВСД](https://docs.google.com/document/d/1cwi6T3jU5hVETfblLsuzwBBCCo5MuvP-zXIlkWjPAKY/edit?tab=t.0) | Инструкция по правильному оформлению ветеринарно-сопроводительных документов |
+| 8 | [Приход товара на склад](https://docs.google.com/document/d/1BIIiVpA8vuoTUMBnWxXzoNLAx9uSmqde9EAKbc2an7M/edit?tab=t.0) | Инструкция по учету прихода товаров на склад предприятия |
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+### 📦 Склад
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+| Название инструкции | Описание |
+|---------------------|----------|
+| [Проведение пересчета склада (ревизии) через ТСД (DataMobile)](https://docs.google.com/document/d/1nmi8bSlh1kcWX_K2aYN7VKwQZ2PBd2Iuy8O1rFTQTJQ/edit?tab=t.0) | Эта инструкция описывает полный цикл работы: от подготовки в офисе до финишной выгрузки данных. |
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+> ⚠️ **Примечание:** Инструкция "Проведение создания пересчета склада (ревизии)" пока не добавлена (ссылка отсутствует).
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+### 🚀 Торговые представители
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+| № | Название инструкции | Описание |
+|:---:|---------------------|----------|
+| 1 | [«Мерчендайзинг» 1С](https://docs.google.com/document/d/1PIOfZwTgndgTsv8LJqvqbHVxm7AnYe8f5o-k9D_UzvA/edit?tab=t.0) | Документ используется для сбора информации о представленном ассортименте товаров в торговых точках. |
+| 2 | [Требования Агент+ к оборудованию Мобильные устройства](https://docs.google.com/document/d/1eRugpnODJr-c-kGI688pNZGzVqei5IwNJA1pOEPlNfA/edit?tab=t.0) | Требования к оборудованию Мобильные устройства (Android) |
+| 3 | [«Мерчендайзинг» Mobile](https://docs.google.com/document/d/1t8RIl0iVtSRGcSV071buv0heY3WahlZgW72g8jDRD5U/edit?tab=t.0) | Документ используется для сбора информации о представленном ассортименте товаров в торговых точках. |
+| 4 | [Поступления/возврат](https://docs.google.com/document/d/1cdHbOgRCDlaOASfxTia3-XyTw7uanMP7BR8Yh94dRmM/edit?tab=t.0) | Документ «Поступление» предназначен для оформления операций закупки товаров у поставщиков. |
+| 5 | [Процесс работы на торговых точках](https://docs.google.com/document/d/1vYbCkuxavsQ0RJPr61t_scRa-9UAqNGZtDP9XPqDgUY/edit?tab=t.0) | Порядок действий при визите в торговую точку. Проблемные зоны, что будут решаться |
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+*Последнее обновление: 2026 год*

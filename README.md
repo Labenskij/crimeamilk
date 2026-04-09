@@ -109,6 +109,6 @@
 | 2 | [Требования Агент+ к оборудованию Мобильные устройства](https://docs.google.com/document/d/1eRugpnODJr-c-kGI688pNZGzVqei5IwNJA1pOEPlNfA/edit?tab=t.0) | Требования к оборудованию Мобильные устройства (Android) |
 | 3 | [«Мерчендайзинг» Mobile](https://docs.google.com/document/d/1t8RIl0iVtSRGcSV071buv0heY3WahlZgW72g8jDRD5U/edit?tab=t.0) | Документ используется для сбора информации о представленном ассортименте товаров в торговых точках. |
 | 4 | [Поступления/возврат](https://docs.google.com/document/d/1cdHbOgRCDlaOASfxTia3-XyTw7uanMP7BR8Yh94dRmM/edit?tab=t.0) | Документ «Поступление» предназначен для оформления операций закупки товаров у поставщиков. |
-| 5 | [Процесс работы на торговых точках](https://docs.google.com/document/d/1vYbCkuxavsQ0RJPr61t_scRa-9UAqNGZtDP9XPqDgUY/edit?tab=t.0) | Порядок действий при визите в торговую точку. Проблемные зоны, что будут решаться |
+| 5 | [Процесс работы на торговых точках](https://docs.google.com/document/d/1ppSm6tZF3_C8hjCndwfq_DgwLbn9hpgiwYseBFDVcJY/edit?tab=t.0) | Порядок действий при визите в торговую точку. Проблемные зоны, что будут решаться |
 
 *Последнее обновление: 2026 год*

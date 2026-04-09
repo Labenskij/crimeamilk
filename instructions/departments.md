@@ -131,7 +131,7 @@
 
 > **Описание:** Порядок действий при визите в торговую точку. Проблемные зоны, что будут решаться
 
-🔗 [Открыть инструкцию](https://docs.google.com/document/d/1vYbCkuxavsQ0RJPr61t_scRa-9UAqNGZtDP9XPqDgUY/edit?tab=t.0)
+🔗 [Открыть инструкцию](https://docs.google.com/document/d/1ppSm6tZF3_C8hjCndwfq_DgwLbn9hpgiwYseBFDVcJY/edit?tab=t.0)
 
 ---
 

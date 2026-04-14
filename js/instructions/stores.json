@@ -1,0 +1,10 @@
+{
+  "astana_kesaeva.md": {
+    "title": "Инструкция: ул. Астана Кесаева, д.20",
+    "googleDocUrl": "https://docs.google.com/document/d/1u5h9A-lZt7LSHTsAuXtrziE-5SPWgK6IjQQsan4RmRY/edit",
+    "content": [
+      {"type": "text", "value": "## 🔧 Диагностика проблемы\n\n1. Проверьте питание\n2. Перезагрузите устройство\n3. Обратитесь в техподдержку"},
+      {"type": "image", "src": "img/screenshots/diagnostic.jpg", "alt": "Схема", "caption": "Порядок диагностики"}
+    ]
+  }
+}

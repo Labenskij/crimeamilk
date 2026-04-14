@@ -16,7 +16,7 @@ function renderCards(containerId, files) {
     if (!container) return;
     container.innerHTML = files.map(file => `
         <div class="card">
-            <div class="card-title">${escapeHtml(APP_DATA.titles[file] || file.replace('.md',''))}</div>
+            <div class="card-title">${escapeHtml(APP_DATA.titles[file] || file.replace('.md', ''))}</div>
             <div class="card-desc">${escapeHtml(APP_DATA.descs[file] || 'Инструкция')}</div>
             <a class="card-link" href="#" data-file="${file}" data-title="${escapeHtml(APP_DATA.titles[file] || file)}">📖 Открыть инструкцию →</a>
         </div>
@@ -38,8 +38,9 @@ function renderStores() {
         ${city.shops.map(shop => `
             <tr><td><span class="badge-id">${escapeHtml(shop.id)}</span></td>
             <td>${escapeHtml(shop.address)}</td>
-            <td><a class="store-link" href="#" data-file="${shop.file}" data-title="${escapeHtml(APP_DATA.titles[shop.file] || shop.file)}">📄 Открыть</a></td></tr>
-        `).join('')}</tbody></table>
+            <td><a class="store-link" href="#" data-file="${shop.file}" data-title="${escapeHtml(APP_DATA.titles[shop.file] || shop.file)}">📄 Открыть</a></td>
+        </tr>`).join('')}</tbody>
+        </table>
     `).join('');
     document.querySelectorAll('.store-link').forEach(link => {
         link.addEventListener('click', async (e) => {
@@ -80,7 +81,7 @@ function getGoogleUrl(filePath) {
         const shop = city.shops.find(s => s.file === filePath);
         if (shop?.googleDocUrl) return shop.googleDocUrl;
     }
-    return APP_DATA.googleDocUrls?.[filePath] || null;
+    return null;
 }
 
 function renderMarkdownContent(instruction) {
@@ -108,7 +109,7 @@ async function showModalContent(title, filePath) {
         googleBtn.onclick = () => googleUrl && window.open(googleUrl, '_blank');
     }
 
-    const instruction = APP_DATA.instructions[filePath] || { content: [{"type":"text","value":"# Инструкция не найдена\n\nДокумент находится в разработке."}] };
+    const instruction = APP_DATA.instructions[filePath] || { content: [{ "type": "text", "value": "# Инструкция не найдена\n\nДокумент находится в разработке." }] };
     modalBody.innerHTML = renderMarkdownContent(instruction);
 }
 

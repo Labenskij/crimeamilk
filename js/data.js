@@ -49,7 +49,6 @@ const APP_DATA = {
         "support_1.md": "Базовая инструкция по диагностике и решению проблем с интернет-соединением", "support_2.md": "Пошаговый алгоритм действий при отказе включения компьютерного или кассового оборудования", "support_3.md": "Инструкция по устранению типовых ошибок кассового оборудования"
     },
 
-    // Содержимое инструкций (встроено для простоты)
     instructions: {
         "accounting_1.md": { content: [{ "type": "text", "value": "# 🌐 Работа с vetrf.ru\n\n**Шаг 1:** Перейдите на сайт\n**Шаг 2:** Войдите в систему\n**Шаг 3:** Выберите раздел «Меркурий»" }, { "type": "image", "src": "img/screenshots/vetrf_login.jpg", "alt": "Авторизация", "caption": "Страница входа" }] },
         "accounting_2.md": { content: [{ "type": "text", "value": "# 📄 Гашение ВСД\n\n## Порядок действий:\n1. Откройте раздел «ВСД»\n2. Выберите документ\n3. Нажмите «Погасить»\n4. Подтвердите действие" }] },
@@ -59,7 +58,7 @@ const APP_DATA = {
     }
 };
 
-// Добавляем заглушки для отсутствующих инструкций
+// Заглушки для отсутствующих инструкций
 const missingInstructions = ["accounting_3.md", "accounting_4.md", "accounting_5.md", "accounting_6.md", "accounting_7.md", "accounting_8.md", "stalingrad.md", "oktyabr.md", "shevchenko.md", "gorpischenko_127.md", "gorpischenko_139.md", "gorpischenko_143.md", "boris_mihaylova.md", "pytnica.md", "econom5.md", "rybniy.md", "dimitrova.md", "burger.md", "kirova6.md", "lenina9.md", "sales_2.md", "sales_3.md", "sales_4.md", "sales_5.md", "corporate_1.md", "corporate_2.md", "support_1.md", "support_2.md", "support_3.md"];
 missingInstructions.forEach(file => {
     if (!APP_DATA.instructions[file]) {

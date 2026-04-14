@@ -1,7 +1,9 @@
 pages:
   stage: deploy
   script:
-    - echo "Сайт уже готов в папке public"
+    - mkdir -p public
+    - cp -r * public/ 2>/dev/null || true
+    - ls -la public/
   artifacts:
     paths:
       - public

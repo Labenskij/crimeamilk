@@ -1,0 +1,14 @@
+/blacksea_dairyplant_information/
+├── index.html
+├── css/
+│   └── style.css
+├── js/
+│   ├── app.js (ЗАМЕНИТЬ)
+│   ├── data.json
+│   ├── accounting.json
+│   ├── sales.json
+│   ├── warehouse.json
+│   ├── corporate.json
+│   └── support.json
+└── img/
+    └── ...

@@ -606,3 +606,21 @@ footer {
         font-size: 0.7rem;
     }
 }
+
+/* ========== УСИЛЕНИЕ КЛИКАБЕЛЬНОСТИ ========== */
+.card-link,
+.store-link {
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s ease;
+}
+
+.card-link:active,
+.store-link:active {
+    transform: scale(0.97);
+}
+
+/* Убедимся, что карточки не перехватывают клики */
+.card {
+    cursor: default;
+}

@@ -237,7 +237,7 @@ function showAppsModal() {
     
     modalBody.innerHTML = `
         <div style="margin-bottom: 20px; padding: 16px; background: #e8f5e9; border-radius: 16px;">
-            <p>⚠️ <strong>Внимание:</strong> Установка приложений разрешена только с корпоративных устройств или по согласованию с IT-отделом.</p>
+            <p>⚠️ <strong>Внимание:</strong> Часто устанавливаемые приложения. Для удобного доступа.</p>
         </div>
         ${appsHtml}
         <div class="note" style="margin-top: 20px;">

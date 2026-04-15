@@ -163,26 +163,26 @@ const APP_DATA = {
         "agent_plus": {
             name: "Agent Plus",
             description: "Приложение для торговых представителей. Позволяет управлять заказами, отслеживать маршруты и вести клиентскую базу.",
-            downloadUrl: "https://play.google.com/store/apps/details?id=com.agent.plus",
-            instructions: "После установки выполните вход с корпоративными учетными данными. При первом запуске потребуется синхронизация базы данных."
+            downloadUrl: "https://agentplus.ru/downloads/",
+            instructions: "Адрес сервера: qw1.czpt.ru Порт: 5556"
         },
         "rusdesk": {
-            name: "RusDesk",
+            name: "RustDesk",
             description: "Система удаленного доступа и техподдержки. Используется для подключения к рабочим местам сотрудников.",
-            downloadUrl: "https://rusdesk.ru/download",
-            instructions: "Установите приложение, введите адрес сервера: support.chernomorskmilk.ru. Для подключения используйте свой табельный номер."
+            downloadUrl: "https://github.com/rustdesk/rustdesk/releases/tag/1.4.6",
+            instructions: ""
         },
         "excel": {
-            name: "Microsoft Excel",
-            description: "Работа с таблицами, отчетность, анализ данных. Корпоративная версия для всех сотрудников.",
+            name: "Microsoft Excel на android",
+            description: "Работа с таблицами, отчетность, анализ данных. Мобильная версия.",
             downloadUrl: "https://play.google.com/store/apps/details?id=com.microsoft.office.excel",
-            instructions: "Установите из официального магазина. Для активации используйте корпоративную учетную запись Microsoft 365."
+            instructions: ""
         },
         "element": {
             name: "Element",
             description: "Корпоративный мессенджер для внутренней коммуникации. Замена Telegram/WhatsApp в рабочих целях.",
             downloadUrl: "https://element.io/download",
-            instructions: "После установки нажмите 'Изменить сервер по умолчанию', введите: matrix.chernomorskmilk.ru. Войдите с корпоративной почтой."
+            instructions: "После установки нажмите 'Изменить сервер по умолчанию', введите: matrix.crimeamilk.ru. Войдите с корпоративной почтой."
         }
     }
 };

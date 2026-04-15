@@ -13,7 +13,7 @@
     <div class="container">
         <div class="header">
             <div class="logo-area">
-                <img class="logo-img" src="img/logo.jpg" alt="Логотип" 
+                <img class="logo-img" src="img/logo.jpg" alt="Логотип"
                     onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 fill=%22%232d6a4b%22/%3E%3Ctext x=%2250%%22 y=%2250%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2232%22%3E%D0%A7%D0%9C%D0%97%3C/text%3E%3C/svg%3E';">
                 <div class="company">
                     <h1>🌿 Черноморский молочный завод</h1>
@@ -21,27 +21,16 @@
                 </div>
             </div>
             <div class="quick-nav">
-                <a href="#stores-block">🏪 Магазины</a>
-                <a href="#depts-block">👥 Отделы</a>
-                <a href="#corp-block">🏢 Корпоративные</a>
-                <a href="#support-block">🆘 Критерии помощи</a>
                 <a href="#" id="appsDownloadBtn" class="app-download-btn">📱 Скачать приложения</a>
+                <a href="#depts-block">👥 Отделы</a>
+                <a href="#stores-block">🏪 Магазины</a>
+                <a href="#corp-block">🏢 Корпоративные</a>
+                <a href="#support-block">🆘 Общая инструкция</a>
                 <button class="theme-toggle" id="themeToggle">🌙</button>
             </div>
         </div>
 
         <!-- СЕКЦИИ -->
-        <div id="stores-block" class="section">
-            <div class="section-header" onclick="toggleSection(this)">
-                <div class="section-title"><span>🏪</span> Инструкции для магазинов</div>
-                <div class="toggle-icon">▼</div>
-            </div>
-            <div class="section-content">
-                <div id="stores-content"></div>
-                <div class="note">ℹ️ Все инструкции хранятся в системе</div>
-            </div>
-        </div>
-
         <div id="depts-block" class="section">
             <div class="section-header" onclick="toggleSection(this)">
                 <div class="section-title"><span>👥</span> Инструкции по отделам</div>
@@ -59,6 +48,17 @@
             </div>
             <div class="section-content">
                 <div class="grid-cards" id="corp-cards"></div>
+            </div>
+        </div>
+
+        <div id="stores-block" class="section">
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-title"><span>🏪</span> Инструкции для магазинов</div>
+                <div class="toggle-icon">▼</div>
+            </div>
+            <div class="section-content">
+                <div id="stores-content"></div>
+                <div class="note">ℹ️ Все инструкции хранятся в системе</div>
             </div>
         </div>
 

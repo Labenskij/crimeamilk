@@ -1,3 +1,0 @@
-{
-  "warehouse_1": { "title": "Ревизия через ТСД", "googleDocUrl": "https://docs.google.com/document/d/1nmi8bSlh1kcWX_K2aYN7VKwQZ2PBd2Iuy8O1rFTQTJQ/edit", "content": [{"type":"text","value":"# Ревизия склада\n\n1. Сформируйте задание в 1С\n2. Синхронизируйте ТСД\n3. Проведите пересчет\n4. Выгрузите результаты"}] }
-}

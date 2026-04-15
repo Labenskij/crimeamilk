@@ -1,0 +1,511 @@
+{
+  "astana_kesaeva": {
+    "title": "Инструкция: ул. Астана Кесаева, д.20",
+    "googleDocUrl": "https://docs.google.com/document/d/1u5h9A-lZt7LSHTsAuXtrziE-5SPWgK6IjQQsan4RmRY/edit",
+    "content": [
+      {
+        "type": "text",
+        "value": "# 🔧 Устранение неполадок кассы\n\n**Магазин ул. Астана Кесаева, д.20**"
+      },
+      {
+        "type": "image",
+        "src": "img/stores/astana_kesaeva/kkm.jpg",
+        "alt": "Кассовое оборудование",
+        "caption": "Касса АТОЛ 30Ф"
+      },
+      {
+        "type": "step",
+        "number": 1,
+        "value": "**Перезагрузите кассу:** выключите кнопкой на корпусе на 10 секунд"
+      },
+      {
+        "type": "step",
+        "number": 2,
+        "value": "**Проверьте чековую ленту** — возможно, она замялась"
+      },
+      {
+        "type": "image",
+        "src": "img/stores/astana_kesaeva/check_tape.jpg",
+        "alt": "Замена чековой ленты",
+        "caption": "Как правильно заправить ленту"
+      },
+      {
+        "type": "note",
+        "value": "Если после перезагрузки ошибка не исчезла — звоните в техподдержку: **+7 (978) 123-45-67**"
+      },
+      {
+        "type": "text",
+        "value": "## Контакты ответственного\n\n- **Магазин:** Иванова Мария, +7-978-123-45-67\n- **Техподдержка:** support@crimeamilk.ru"
+      }
+    ]
+  },
+  "stalingrad": {
+    "title": "Инструкция: пр-т Героев Сталинграда, д.21-А",
+    "googleDocUrl": "https://docs.google.com/document/d/1bKZS06vTt1SVmgyigZEdI16nAOALD8DltKQ5jpiW9H0/edit",
+    "content": [
+      {
+        "type": "text",
+        "value": "# 🖥️ Работа с кассовой программой ШТРИХ-М\n\n**Магазин пр-т Героев Сталинграда, д.21-А**"
+      },
+      {
+        "type": "image",
+        "src": "img/stores/stalingrad/shtrih_m.jpg",
+        "alt": "Интерфейс ШТРИХ-М",
+        "caption": "Главное окно программы ШТРИХ-М"
+      },
+      {
+        "type": "step",
+        "number": 1,
+        "value": "**Вход в систему:** логин `admin`, пароль по умолчанию `1234`"
+      },
+      {
+        "type": "step",
+        "number": 2,
+        "value": "**Для открытия смены** нажмите `F6` → выберите кассира"
+      },
+      {
+        "type": "note",
+        "value": "Пароль необходимо сменить после первого входа. Обратитесь к старшему смены."
+      },
+      {
+        "type": "warning",
+        "value": "Не закрывайте программу во время печати чека — это может привести к ошибке фискального накопителя!"
+      },
+      {
+        "type": "text",
+        "value": "## Частые ошибки\n\n| Ошибка | Решение |\n|--------|---------|\n| «Нет связи с ККТ» | Проверьте USB-кабель |\n| «Ошибка ФН» | Вызовите техподдержку |\n| «Неверный пароль» | Обратитесь к администратору |"
+      }
+    ]
+  },
+  "oktyabr": {
+    "title": "Инструкция: пр-т Октябрьской Революции, д.89",
+    "googleDocUrl": "https://docs.google.com/document/d/1jNxzEgIQjWRGyxiqgsBsETM5nPHG6YQx2vCYGRvrcL8/edit",
+    "content": [
+      {
+        "type": "text",
+        "value": "# 📦 Приемка товара\n\n**Магазин пр-т Октябрьской Революции, д.89**"
+      },
+      {
+        "type": "step",
+        "number": 1,
+        "value": "**Проверьте накладную** — сверьте количество мест с фактическим"
+      },
+      {
+        "type": "step",
+        "number": 2,
+        "value": "**Осмотрите товар** на предмет повреждений упаковки"
+      },
+      {
+        "type": "image",
+        "src": "img/stores/oktyabr/receipt.jpg",
+        "alt": "Процесс приемки",
+        "caption": "Проверка товара по накладной"
+      },
+      {
+        "type": "step",
+        "number": 3,
+        "value": "**Внесите данные в 1С:** раздел «Закупки» → «Поступление товаров»"
+      },
+      {
+        "type": "note",
+        "value": "Температурный режим для молочной продукции: **+2…+6°C**. При нарушении — товар не принимайте!"
+      }
+    ]
+  },
+  "shevchenko": {
+    "title": "Инструкция: ул. Тараса Шевченко, д.26",
+    "googleDocUrl": "https://docs.google.com/document/d/12zi8DP81A3dGbiGMe2Fg2UR9OP_U_nJfT-S5AeFAA0A/edit",
+    "content": [
+      {
+        "type": "text",
+        "value": "# 🧾 Возврат товара поставщику\n\n**Магазин ул. Тараса Шевченко, д.26**"
+      },
+      {
+        "type": "step",
+        "number": 1,
+        "value": "**Оформите акт о возврате** в 1С: «Склад» → «Возврат поставщику»"
+      },
+      {
+        "type": "step",
+        "number": 2,
+        "value": "**Укажите причину возврата** (брак, просрочка, пересорт)"
+      },
+      {
+        "type": "image",
+        "src": "img/stores/shevchenko/return.jpg",
+        "alt": "Оформление возврата",
+        "caption": "Образец акта возврата"
+      },
+      {
+        "type": "warning",
+        "value": "Просроченный товар храните отдельно в зоне карантина. Утилизация — только после подписания акта."
+      }
+    ]
+  },
+  "gorpischenko_127": {
+    "title": "Инструкция: ул. Горпищенко, д.127",
+    "googleDocUrl": "https://docs.google.com/document/d/1x71cm1l7IvLhu7kpY43mx0MMiC5VPrYSItbLKZjSSAM/edit",
+    "content": [
+      {
+        "type": "text",
+        "value": "# 📊 Отчетность в конце смены\n\n**Магазин ул. Горпищенко, д.127**"
+      },
+      {
+        "type": "step",
+        "number": 1,
+        "value": "**Снимите Z-отчет** на кассе"
+      },
+      {
+        "type": "step",
+        "number": 2,
+        "value": "**Сверьте выручку** с суммой в 1С"
+      },
+      {
+        "type": "step",
+        "number": 3,
+        "value": "**Заполните кассовую книгу** и сдайте инкассатору"
+      },
+      {
+        "type": "note",
+        "value": "Расхождение более 500 рублей требует объяснительной записки."
+      }
+    ]
+  },
+  "gorpischenko_139": {
+    "title": "Инструкция: ул. Горпищенко, д.139",
+    "googleDocUrl": "https://docs.google.com/document/d/1x71cm1l7IvLhu7kpY43mx0MMiC5VPrYSItbLKZjSSAM/edit",
+    "content": [
+      {
+        "type": "text",
+        "value": "# 🏷️ Выкладка товара\n\n**Магазин ул. Горпищенко, д.139**"
+      },
+      {
+        "type": "image",
+        "src": "img/stores/gorpischenko/display.jpg",
+        "alt": "Правила выкладки",
+        "caption": "Схема выкладки молочной продукции"
+      },
+      {
+        "type": "step",
+        "number": 1,
+        "value": "**Проверьте сроки годности** — товар с ближайшим сроком ставьте спереди"
+      },
+      {
+        "type": "step",
+        "number": 2,
+        "value": "**Соблюдайте товарное соседство** — молочка отдельно от рыбы и мяса"
+      },
+      {
+        "type": "note",
+        "value": "Ценники должны быть строго под товаром, без повреждений."
+      }
+    ]
+  },
+  "gorpischenko_143": {
+    "title": "Инструкция: ул. Горпищенко, д.143",
+    "googleDocUrl": "https://docs.google.com/document/d/1x71cm1l7IvLhu7kpY43mx0MMiC5VPrYSItbLKZjSSAM/edit",
+    "content": [
+      {
+        "type": "text",
+        "value": "# 🧼 Санитарная обработка\n\n**Магазин ул. Горпищенко, д.143**"
+      },
+      {
+        "type": "step",
+        "number": 1,
+        "value": "**Ежедневно:** мойка полов, протирка стеллажей"
+      },
+      {
+        "type": "step",
+        "number": 2,
+        "value": "**Еженедельно:** генеральная уборка холодильного оборудования"
+      },
+      {
+        "type": "image",
+        "src": "img/stores/gorpischenko/sanitary.jpg",
+        "alt": "Санитарная обработка",
+        "caption": "График уборки"
+      },
+      {
+        "type": "warning",
+        "value": "Используйте только разрешенные дезинфицирующие средства (перечень в журнале)."
+      }
+    ]
+  },
+  "boris_mihaylova": {
+    "title": "Инструкция: ул. Бориса Михайлова, д.11",
+    "googleDocUrl": "https://docs.google.com/document/d/1x71cm1l7IvLhu7kpY43mx0MMiC5VPrYSItbLKZjSSAM/edit",
+    "content": [
+      {
+        "type": "text",
+        "value": "# 🚨 Действия при краже\n\n**Магазин ул. Бориса Михайлова, д.11**"
+      },
+      {
+        "type": "step",
+        "number": 1,
+        "value": "**Не вступайте в конфликт** с нарушителем"
+      },
+      {
+        "type": "step",
+        "number": 2,
+        "value": "**Запомните приметы** и направление ухода"
+      },
+      {
+        "type": "step",
+        "number": 3,
+        "value": "**Сообщите старшему смены** и вызовите полицию (102)"
+      },
+      {
+        "type": "step",
+        "number": 4,
+        "value": "**Сохраните запись с камер** видеонаблюдения"
+      },
+      {
+        "type": "note",
+        "value": "Запрещено задерживать подозреваемого самостоятельно — это может быть опасно!"
+      }
+    ]
+  },
+  "pytnica": {
+    "title": "Алкомаркет Пятница",
+    "googleDocUrl": "https://docs.google.com/document/d/1yf7HQpdvY2PMAueTfC-QQq5-Rhg8Eb2jcUEjlHBrJzg/edit",
+    "content": [
+      {
+        "type": "text",
+        "value": "# 🍷 Продажа алкогольной продукции\n\n**Алкомаркет Пятница, ул. Почтовая, д.43**"
+      },
+      {
+        "type": "step",
+        "number": 1,
+        "value": "**Проверьте возраст покупателя** — паспорт обязателен"
+      },
+      {
+        "type": "step",
+        "number": 2,
+        "value": "**Пробивайте чек только через ЕГАИС-кассу**"
+      },
+      {
+        "type": "image",
+        "src": "img/stores/pytnica/egais.jpg",
+        "alt": "Работа с ЕГАИС",
+        "caption": "Сканирование акцизной марки"
+      },
+      {
+        "type": "warning",
+        "value": "Продажа несовершеннолетним — уголовная ответственность (ст. 151.1 УК РФ)."
+      },
+      {
+        "type": "note",
+        "value": "Часы продажи алкоголя: **08:00 — 23:00** (местное время)."
+      }
+    ]
+  },
+  "econom5": {
+    "title": "Магазин №5 Эконом",
+    "googleDocUrl": "https://docs.google.com/document/d/1yf7HQpdvY2PMAueTfC-QQq5-Rhg8Eb2jcUEjlHBrJzg/edit",
+    "content": [
+      {
+        "type": "text",
+        "value": "# 💳 Работа с терминалом оплаты\n\n**Магазин №5 Эконом, ул. Почтовая, д.43**"
+      },
+      {
+        "type": "step",
+        "number": 1,
+        "value": "**Приложите карту к терминалу** или вставьте чипом"
+      },
+      {
+        "type": "step",
+        "number": 2,
+        "value": "**Дождитесь одобрения операции**"
+      },
+      {
+        "type": "step",
+        "number": 3,
+        "value": "**Выдайте чек покупателю** (оба чека: терминала и кассы)"
+      },
+      {
+        "type": "image",
+        "src": "img/stores/econom5/terminal.jpg",
+        "alt": "Терминал оплаты",
+        "caption": "Модель терминала PAX A920"
+      },
+      {
+        "type": "note",
+        "value": "При ошибке «Связь не установлена» — проверьте интернет-кабель или перезагрузите терминал."
+      }
+    ]
+  },
+  "rybniy": {
+    "title": "Рыбный магазин №8",
+    "googleDocUrl": "https://docs.google.com/document/d/1eF-T5f4CKJK486VEAjZUfK9X7CkM9rOp3KznZbUm3_Y/edit",
+    "content": [
+      {
+        "type": "text",
+        "value": "# 🐟 Условия хранения рыбы\n\n**Рыбный магазин №8, ул. Почтовая, д.43**"
+      },
+      {
+        "type": "step",
+        "number": 1,
+        "value": "**Температура в витрине:** от -2°C до 0°C"
+      },
+      {
+        "type": "step",
+        "number": 2,
+        "value": "**В морозильнике:** не выше -18°C"
+      },
+      {
+        "type": "step",
+        "number": 3,
+        "value": "**Ежедневно записывайте показания** в журнал температуры"
+      },
+      {
+        "type": "image",
+        "src": "img/stores/rybniy/fridge.jpg",
+        "alt": "Холодильное оборудование",
+        "caption": "Контроль температуры в витрине"
+      },
+      {
+        "type": "warning",
+        "value": "Превышение температуры более чем на 2°C — товар подлежит списанию!"
+      }
+    ]
+  },
+  "dimitrova": {
+    "title": "Магазин №7 Димитрова",
+    "googleDocUrl": "https://docs.google.com/document/d/1bKZS06vTt1SVmgyigZEdI16nAOALD8DltKQ5jpiW9H0/edit",
+    "content": [
+      {
+        "type": "text",
+        "value": "# 📝 Инвентаризация\n\n**Магазин №7, ул. Димитрова, д.15**"
+      },
+      {
+        "type": "step",
+        "number": 1,
+        "value": "**Распечатайте инвентаризационную опись** из 1С"
+      },
+      {
+        "type": "step",
+        "number": 2,
+        "value": "**Пересчитайте товар** по секциям (молоко, сыры, масло)"
+      },
+      {
+        "type": "step",
+        "number": 3,
+        "value": "**Внесите фактические остатки** в опись"
+      },
+      {
+        "type": "image",
+        "src": "img/stores/dimitrova/inventory.jpg",
+        "alt": "Инвентаризация",
+        "caption": "Пример заполнения описи"
+      },
+      {
+        "type": "note",
+        "value": "Расхождения более 1% требуют повторного пересчета."
+      }
+    ]
+  },
+  "burger": {
+    "title": "Кафе Burger Station",
+    "googleDocUrl": "https://docs.google.com/document/d/1yf7HQpdvY2PMAueTfC-QQq5-Rhg8Eb2jcUEjlHBrJzg/edit",
+    "content": [
+      {
+        "type": "text",
+        "value": "# 🍔 Приготовление бургеров (стандарт)\n\n**Кафе Burger Station, ул. Кирова, д.83**"
+      },
+      {
+        "type": "step",
+        "number": 1,
+        "value": "**Прожарка котлеты:** 2 минуты с каждой стороны, температура в центре не менее 75°C"
+      },
+      {
+        "type": "step",
+        "number": 2,
+        "value": "**Сборка:** нижняя булочка → соус → салат → котлета → сыр → верхняя булочка"
+      },
+      {
+        "type": "image",
+        "src": "img/stores/burger/assembly.jpg",
+        "alt": "Сборка бургера",
+        "caption": "Правильная последовательность"
+      },
+      {
+        "type": "warning",
+        "value": "Используйте перчатки при сборке! Срок годности готового бургера — 15 минут."
+      },
+      {
+        "type": "note",
+        "value": "Заказы на вынос упаковывайте в крафтовые пакеты с салфетками."
+      }
+    ]
+  },
+  "kirova6": {
+    "title": "Магазин №6 Кирова",
+    "googleDocUrl": "https://docs.google.com/document/d/1yf7HQpdvY2PMAueTfC-QQq5-Rhg8Eb2jcUEjlHBrJzg/edit",
+    "content": [
+      {
+        "type": "text",
+        "value": "# 🔄 Возврат от покупателя\n\n**Магазин №6, ул. Кирова, д.85**"
+      },
+      {
+        "type": "step",
+        "number": 1,
+        "value": "**Примите товар** при наличии чека и сохранной упаковки"
+      },
+      {
+        "type": "step",
+        "number": 2,
+        "value": "**Оформите возврат в кассе** (кнопка «Возврат»)"
+      },
+      {
+        "type": "step",
+        "number": 3,
+        "value": "**Верните деньги** наличными или на карту"
+      },
+      {
+        "type": "image",
+        "src": "img/stores/kirova6/refund.jpg",
+        "alt": "Оформление возврата",
+        "caption": "Чек возврата"
+      },
+      {
+        "type": "note",
+        "value": "Продовольственные товары надлежащего качества возврату не подлежат (ст. 25 ЗоЗПП)."
+      }
+    ]
+  },
+  "lenina9": {
+    "title": "Магазин №9 Ленина",
+    "googleDocUrl": "https://docs.google.com/document/d/1-NtHTK4QuMYp7v7GYzvtzDHLdXSHaLK_EAjEZOxflZs/edit",
+    "content": [
+      {
+        "type": "text",
+        "value": "# 📈 Анализ продаж\n\n**Магазин №9, ул. Ленина, д.31**"
+      },
+      {
+        "type": "step",
+        "number": 1,
+        "value": "**Ежедневно:** проверьте отчет по продажам в 1С («Отчеты» → «Продажи»)"
+      },
+      {
+        "type": "step",
+        "number": 2,
+        "value": "**Выявите ТОП-10 товаров** и товары-аутсайдеры"
+      },
+      {
+        "type": "step",
+        "number": 3,
+        "value": "**Скорректируйте заказ** поставщику (увеличьте лидеров, уменьшите аутсайдеров)"
+      },
+      {
+        "type": "image",
+        "src": "img/stores/lenina9/sales_report.jpg",
+        "alt": "Отчет по продажам",
+        "caption": "Пример отчета в 1С"
+      },
+      {
+        "type": "note",
+        "value": "Анализ продаж — каждую пятницу, отправляйте старшему мерчендайзеру."
+      }
+    ]
+  }
+}

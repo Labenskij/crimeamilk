@@ -13,8 +13,8 @@
     <div class="container">
         <div class="header">
             <div class="logo-area">
-                <img class="logo-img" src="img/logo.jpg" alt="Логотип"
-                    onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 fill=%22%232d6a4b%22/%3E%3Ctext x=%2250%%22 y=%2250%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2236%22%3E%D0%9C%D0%94%3C/text%3E%3C/svg%3E';">
+                <img class="logo-img" src="img/logo.jpg" alt="Логотип" 
+                    onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 fill=%22%232d6a4b%22/%3E%3Ctext x=%2250%%22 y=%2250%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2232%22%3E%D0%A7%D0%9C%D0%97%3C/text%3E%3C/svg%3E';">
                 <div class="company">
                     <h1>🌿 Черноморский молочный завод</h1>
                     <p>Центр документации • инструкции и регламенты</p>
@@ -25,11 +25,13 @@
                 <a href="#depts-block">👥 Отделы</a>
                 <a href="#corp-block">🏢 Корпоративные</a>
                 <a href="#support-block">🆘 Критерии помощи</a>
+                <a href="#" id="appsDownloadBtn" class="app-download-btn">📱 Скачать приложения</a>
                 <button class="theme-toggle" id="themeToggle">🌙</button>
             </div>
         </div>
 
-        <div id="stores-block" class="section open">
+        <!-- СЕКЦИИ -->
+        <div id="stores-block" class="section">
             <div class="section-header" onclick="toggleSection(this)">
                 <div class="section-title"><span>🏪</span> Инструкции для магазинов</div>
                 <div class="toggle-icon">▼</div>
@@ -73,6 +75,7 @@
         <footer>📘 Черноморский молочный завод • Актуальные инструкции • 2026</footer>
     </div>
 
+    <!-- Модальное окно для инструкций -->
     <div id="instructionModal" class="fullscreen-modal">
         <div class="modal-overlay" onclick="closeModal()"></div>
         <div class="modal-container fullscreen">
@@ -82,6 +85,21 @@
             <div class="modal-footer">
                 <button id="modalGoogleBtn" class="google-docs-btn">🔗 Открыть в Google Docs</button>
                 <button onclick="closeModal()">Закрыть</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- МОДАЛЬНОЕ ОКНО для скачивания приложений -->
+    <div id="appsModal" class="fullscreen-modal">
+        <div class="modal-overlay" onclick="closeAppsModal()"></div>
+        <div class="modal-container fullscreen">
+            <button class="modal-close" onclick="closeAppsModal()">&times;</button>
+            <h3>📱 Скачивание корпоративных приложений</h3>
+            <div id="appsModalBody" class="modal-body-markdown">
+                <!-- Содержимое будет заполнено из APP_DATA.appsContent -->
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeAppsModal()">Закрыть</button>
             </div>
         </div>
     </div>

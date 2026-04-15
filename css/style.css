@@ -13,7 +13,7 @@ body {
     transition: background 0.3s, color 0.3s;
 }
 
-/* ТЁМНАЯ ТЕМА — ИСПРАВЛЕНА */
+/* ТЁМНАЯ ТЕМА */
 body[data-theme="dark"] {
     background: #121826;
     color: #e8edf2;
@@ -40,7 +40,8 @@ body[data-theme="dark"] .card-desc {
 
 body[data-theme="dark"] .card-link,
 body[data-theme="dark"] .store-link,
-body[data-theme="dark"] .google-docs-btn {
+body[data-theme="dark"] .google-docs-btn,
+body[data-theme="dark"] .app-download-btn {
     background: #2a3a5c;
     color: #7bc47f;
     border-color: #3a4a6c;
@@ -67,7 +68,8 @@ body[data-theme="dark"] .badge-id {
 }
 
 body[data-theme="dark"] .quick-nav a,
-body[data-theme="dark"] .theme-toggle {
+body[data-theme="dark"] .theme-toggle,
+body[data-theme="dark"] .app-download-btn {
     background: #2a3a5c;
     color: #7bc47f;
     border-color: #3a4a6c;
@@ -162,7 +164,8 @@ body[data-theme="dark"] .company p {
 }
 
 .quick-nav a,
-.theme-toggle {
+.theme-toggle,
+.app-download-btn {
     background: #f0f6fe;
     padding: 8px 20px;
     border-radius: 40px;
@@ -174,6 +177,7 @@ body[data-theme="dark"] .company p {
     border: 1px solid #d4e2f0;
     cursor: pointer;
     font-family: inherit;
+    display: inline-block;
 }
 
 .theme-toggle {
@@ -182,7 +186,8 @@ body[data-theme="dark"] .company p {
 }
 
 .quick-nav a:hover,
-.theme-toggle:hover {
+.theme-toggle:hover,
+.app-download-btn:hover {
     background: #e3f0e8;
     transform: translateY(-2px);
 }
@@ -369,7 +374,7 @@ footer {
     border-left: 4px solid #2b7a4b;
 }
 
-/* МОДАЛЬНОЕ ОКНО — АДАПТИВНОЕ + ИЗОБРАЖЕНИЯ */
+/* МОДАЛЬНОЕ ОКНО */
 .fullscreen-modal {
     position: fixed;
     top: 0;
@@ -475,6 +480,70 @@ footer {
     opacity: 0.85;
 }
 
+/* Стили для карточек приложений в модальном окне */
+.app-card {
+    background: #f8fafc;
+    border-radius: 20px;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+    border: 1px solid #e2edf7;
+    transition: all 0.2s;
+}
+
+body[data-theme="dark"] .app-card {
+    background: #253141;
+    border-color: #3a4a6c;
+}
+
+.app-card:hover {
+    transform: translateX(4px);
+    border-color: #7bc47f;
+}
+
+.app-card h4 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: #1f5e3a;
+}
+
+body[data-theme="dark"] .app-card h4 {
+    color: #7bc47f;
+}
+
+.app-card p {
+    font-size: 0.9rem;
+    color: #4a6f62;
+    margin-bottom: 12px;
+}
+
+body[data-theme="dark"] .app-card p {
+    color: #b0bec5;
+}
+
+.download-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #eef4ea;
+    padding: 8px 20px;
+    border-radius: 40px;
+    text-decoration: none;
+    color: #226e48;
+    font-weight: 500;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+}
+
+.download-link:hover {
+    background: #d4e8d0;
+    transform: translateY(-2px);
+}
+
+body[data-theme="dark"] .download-link {
+    background: #2a3a5c;
+    color: #7bc47f;
+}
+
 /* АДАПТИВ ДЛЯ МОБИЛЬНЫХ ТЕЛЕФОНОВ */
 @media (max-width: 700px) {
     body {
@@ -521,13 +590,13 @@ footer {
     }
 
     .quick-nav a,
-    .theme-toggle {
+    .theme-toggle,
+    .app-download-btn {
         padding: 6px 14px;
         font-size: 0.75rem;
     }
 }
 
-/* Дополнительная адаптация для очень маленьких экранов */
 @media (max-width: 480px) {
     .modal-body-markdown {
         font-size: 0.9rem;
@@ -544,29 +613,35 @@ footer {
     }
 }
 
-/* Стили для инструкций из JSON */
 .instruction-text {
     margin-bottom: 20px;
 }
-.instruction-text h1, .instruction-text h2, .instruction-text h3 {
+
+.instruction-text h1,
+.instruction-text h2,
+.instruction-text h3 {
     margin: 1em 0 0.5em;
 }
+
 .instruction-image {
     margin: 20px 0;
     text-align: center;
 }
+
 .instruction-image img {
     max-width: 100%;
     max-height: 70vh;
     border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     cursor: zoom-in;
 }
+
 .image-caption {
     font-size: 0.85rem;
     color: #666;
     margin-top: 8px;
 }
+
 body[data-theme="dark"] .image-caption {
     color: #aaa;
 }

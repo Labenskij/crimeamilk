@@ -1,0 +1,4 @@
+{
+  "corporate_1": { "title": "Установка Element", "googleDocUrl": "https://element.io/download", "content": [{"type":"text","value":"# Установка Element\n\n1. Скачайте с element.io\n2. Установите\n3. Сервер: matrix.crimeamilk.ru"}] },
+  "corporate_2": { "title": "Microsoft Excel", "googleDocUrl": "https://play.google.com/store/apps/details?id=com.microsoft.office.excel", "content": [{"type":"text","value":"# Установка Excel\n\nСкачайте из Google Play и войдите с корпоративной учётной записью"}] }
+}

@@ -1,15 +1,4 @@
 {
-  "accounting_1.md": {
-    "title": "Альтернативный способ через сайт vetrf.ru",
-    "googleDocUrl": "https://docs.google.com/document/d/1tmptt8Jdiq-K0DiFH5I9mQvgxUEpCmisOpTweNkYc4M/edit",
-    "content": [
-      {"type": "text", "value": "# 🌐 Работа с vetrf.ru\n\n**Шаг 1:** Перейдите на сайт\n**Шаг 2:** Войдите в систему\n**Шаг 3:** Выберите раздел «Меркурий»"},
-      {"type": "image", "src": "img/screenshots/vetrf_login.jpg", "alt": "Авторизация", "caption": "Страница входа"}
-    ]
-  },
-  "accounting_2.md": {
-    "title": "Гашение ВСД",
-    "googleDocUrl": "https://docs.google.com/document/d/19bBhOYxEh00odTcmVO0Zfoiijph0cxBZ7m3w7QzXgvo/edit",
-    "content": [{"type": "text", "value": "# 📄 Гашение ВСД\n\n## Порядок действий:\n1. Откройте раздел «ВСД»\n2. Выберите документ\n3. Нажмите «Погасить»\n4. Подтвердите действие"}]
-  }
+  "accounting_1": { "title": "Альтернативный способ через сайт vetrf.ru", "googleDocUrl": "https://docs.google.com/document/d/1tmptt8Jdiq-K0DiFH5I9mQvgxUEpCmisOpTweNkYc4M/edit", "content": [{"type":"text","value":"# Работа с vetrf.ru\n\n## Шаг 1: Перейдите на https://vetrf.ru\n## Шаг 2: Войдите в систему\n## Шаг 3: Выберите раздел «Меркурий»"}] },
+  "accounting_2": { "title": "Гашение ВСД", "googleDocUrl": "https://docs.google.com/document/d/19bBhOYxEh00odTcmVO0Zfoiijph0cxBZ7m3w7QzXgvo/edit", "content": [{"type":"text","value":"# Гашение ВСД\n\n1. Откройте раздел «ВСД»\n2. Найдите документ\n3. Нажмите «Погасить»"}] }
 }

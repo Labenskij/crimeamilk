@@ -1,10 +1,4 @@
 {
-  "astana_kesaeva.md": {
-    "title": "Инструкция: ул. Астана Кесаева, д.20",
-    "googleDocUrl": "https://docs.google.com/document/d/1u5h9A-lZt7LSHTsAuXtrziE-5SPWgK6IjQQsan4RmRY/edit",
-    "content": [
-      {"type": "text", "value": "## 🔧 Диагностика проблемы\n\n1. Проверьте питание\n2. Перезагрузите устройство\n3. Обратитесь в техподдержку"},
-      {"type": "image", "src": "img/screenshots/diagnostic.jpg", "alt": "Схема", "caption": "Порядок диагностики"}
-    ]
-  }
+  "astana_kesaeva": { "title": "Инструкция: ул. Астана Кесаева", "googleDocUrl": "https://docs.google.com/document/d/1u5h9A-lZt7LSHTsAuXtrziE-5SPWgK6IjQQsan4RmRY/edit", "content": [{"type":"text","value":"# Диагностика проблем\n\n1. Проверьте питание\n2. Перезагрузите устройство\n3. Обратитесь в поддержку"}] },
+  "stalingrad": { "title": "Инструкция: пр-т Героев Сталинграда", "googleDocUrl": "https://docs.google.com/document/d/1bKZS06vTt1SVmgyigZEdI16nAOALD8DltKQ5jpiW9H0/edit", "content": [{"type":"text","value":"# Особенности точки\nКассовое ПО: ШТРИХ-М"}] }
 }

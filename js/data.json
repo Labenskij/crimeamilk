@@ -1,0 +1,220 @@
+{
+  "stores": {
+    "sevastopol": {
+      "city": "Севастополь",
+      "shops": [
+        {
+          "id": "1",
+          "address": "ул. Астана Кесаева, д.20",
+          "file": "astana_kesaeva",
+          "googleDocUrl": "https://docs.google.com/document/d/1u5h9A-lZt7LSHTsAuXtrziE-5SPWgK6IjQQsan4RmRY/edit"
+        },
+        {
+          "id": "2",
+          "address": "пр-т Героев Сталинграда, д.21-А",
+          "file": "stalingrad",
+          "googleDocUrl": "https://docs.google.com/document/d/1bKZS06vTt1SVmgyigZEdI16nAOALD8DltKQ5jpiW9H0/edit"
+        },
+        {
+          "id": "3",
+          "address": "пр-т Октябрьской Революции, д.89",
+          "file": "oktyabr",
+          "googleDocUrl": "https://docs.google.com/document/d/1jNxzEgIQjWRGyxiqgsBsETM5nPHG6YQx2vCYGRvrcL8/edit"
+        },
+        {
+          "id": "4",
+          "address": "ул. Тараса Шевченко, д.26",
+          "file": "shevchenko",
+          "googleDocUrl": "https://docs.google.com/document/d/12zi8DP81A3dGbiGMe2Fg2UR9OP_U_nJfT-S5AeFAA0A/edit"
+        },
+        {
+          "id": "5",
+          "address": "ул. Горпищенко, д.127",
+          "file": "gorpischenko_127",
+          "googleDocUrl": "https://docs.google.com/document/d/1x71cm1l7IvLhu7kpY43mx0MMiC5VPrYSItbLKZjSSAM/edit"
+        },
+        {
+          "id": "6",
+          "address": "ул. Горпищенко, д.139",
+          "file": "gorpischenko_139",
+          "googleDocUrl": "https://docs.google.com/document/d/1x71cm1l7IvLhu7kpY43mx0MMiC5VPrYSItbLKZjSSAM/edit"
+        },
+        {
+          "id": "7",
+          "address": "ул. Горпищенко, д.143",
+          "file": "gorpischenko_143",
+          "googleDocUrl": "https://docs.google.com/document/d/1x71cm1l7IvLhu7kpY43mx0MMiC5VPrYSItbLKZjSSAM/edit"
+        },
+        {
+          "id": "8",
+          "address": "ул. Бориса Михайлова, д.11",
+          "file": "boris_mihaylova",
+          "googleDocUrl": "https://docs.google.com/document/d/1x71cm1l7IvLhu7kpY43mx0MMiC5VPrYSItbLKZjSSAM/edit"
+        }
+      ]
+    },
+    "chernomorsk": {
+      "city": "Черноморск",
+      "shops": [
+        {
+          "id": "1",
+          "address": "ул. Почтовая, д.43 — Алкомаркет Пятница",
+          "file": "pytnica",
+          "googleDocUrl": "https://docs.google.com/document/d/1yf7HQpdvY2PMAueTfC-QQq5-Rhg8Eb2jcUEjlHBrJzg/edit"
+        },
+        {
+          "id": "2",
+          "address": "ул. Почтовая, д.43 — №5 Эконом",
+          "file": "econom5",
+          "googleDocUrl": "https://docs.google.com/document/d/1yf7HQpdvY2PMAueTfC-QQq5-Rhg8Eb2jcUEjlHBrJzg/edit"
+        },
+        {
+          "id": "3",
+          "address": "ул. Почтовая, д.43 — №8 Рыбный",
+          "file": "rybniy",
+          "googleDocUrl": "https://docs.google.com/document/d/1eF-T5f4CKJK486VEAjZUfK9X7CkM9rOp3KznZbUm3_Y/edit"
+        },
+        {
+          "id": "4",
+          "address": "ул. Димитрова, д.15 — №7 Эконом",
+          "file": "dimitrova",
+          "googleDocUrl": "https://docs.google.com/document/d/1bKZS06vTt1SVmgyigZEdI16nAOALD8DltKQ5jpiW9H0/edit"
+        },
+        {
+          "id": "5",
+          "address": "ул. Кирова, д.83 — Burger Station",
+          "file": "burger",
+          "googleDocUrl": "https://docs.google.com/document/d/1yf7HQpdvY2PMAueTfC-QQq5-Rhg8Eb2jcUEjlHBrJzg/edit"
+        },
+        {
+          "id": "6",
+          "address": "ул. Кирова, д.85 — №6 Эконом",
+          "file": "kirova6",
+          "googleDocUrl": "https://docs.google.com/document/d/1yf7HQpdvY2PMAueTfC-QQq5-Rhg8Eb2jcUEjlHBrJzg/edit"
+        },
+        {
+          "id": "7",
+          "address": "ул. Ленина, д.31 — №9 Эконом",
+          "file": "lenina9",
+          "googleDocUrl": "https://docs.google.com/document/d/1-NtHTK4QuMYp7v7GYzvtzDHLdXSHaLK_EAjEZOxflZs/edit"
+        }
+      ]
+    }
+  },
+  "departments": {
+    "accounting": {
+      "name": "📊 Бухгалтерам",
+      "files": [
+        "accounting_1",
+        "accounting_2",
+        "accounting_3",
+        "accounting_4",
+        "accounting_5",
+        "accounting_6",
+        "accounting_7",
+        "accounting_8"
+      ]
+    },
+    "warehouse": {
+      "name": "📦 Склад",
+      "files": [
+        "warehouse_1"
+      ]
+    },
+    "sales": {
+      "name": "🚀 Торговые представители",
+      "files": [
+        "sales_1",
+        "sales_2",
+        "sales_3",
+        "sales_4",
+        "sales_5"
+      ]
+    }
+  },
+  "corporate": {
+    "files": [
+      "corporate_1",
+      "corporate_2"
+    ]
+  },
+  "support": {
+    "files": [
+      "support_1",
+      "support_2",
+      "support_3"
+    ]
+  },
+  "titles": {
+    "astana_kesaeva": "Инструкция: ул. Астана Кесаева, д.20",
+    "stalingrad": "Инструкция: пр-т Героев Сталинграда, д.21-А",
+    "oktyabr": "Инструкция: пр-т Октябрьской Революции, д.89",
+    "shevchenko": "Инструкция: ул. Тараса Шевченко, д.26",
+    "gorpischenko_127": "Инструкция: ул. Горпищенко, д.127",
+    "gorpischenko_139": "Инструкция: ул. Горпищенко, д.139",
+    "gorpischenko_143": "Инструкция: ул. Горпищенко, д.143",
+    "boris_mihaylova": "Инструкция: ул. Бориса Михайлова, д.11",
+    "pytnica": "Алкомаркет Пятница",
+    "econom5": "Магазин №5 Эконом",
+    "rybniy": "Рыбный магазин №8",
+    "dimitrova": "Магазин №7 Димитрова",
+    "burger": "Кафе Burger Station",
+    "kirova6": "Магазин №6 Кирова",
+    "lenina9": "Магазин №9 Ленина",
+    "accounting_1": "Альтернативный способ через сайт vetrf.ru",
+    "accounting_2": "Гашение ВСД",
+    "accounting_3": "Загрузка ВСД из Меркурий ХС в базу 1С",
+    "accounting_4": "Загрузка площадки",
+    "accounting_5": "Запрос складского журнала",
+    "accounting_6": "Инвентаризация",
+    "accounting_7": "Оформление ВСД",
+    "accounting_8": "Приход товара на склад",
+    "warehouse_1": "Проведение пересчета склада (ревизии) через ТСД",
+    "sales_1": "Мерчендайзинг 1С",
+    "sales_2": "Требования Агент+ к оборудованию",
+    "sales_3": "Мерчендайзинг Mobile",
+    "sales_4": "Поступления и возврат товаров",
+    "sales_5": "Процесс работы на торговых точках",
+    "corporate_1": "Установка Element",
+    "corporate_2": "Microsoft Excel",
+    "support_1": "Проблема с интернетом",
+    "support_2": "Не включается компьютер/касса",
+    "support_3": "Проблемы с кассовым оборудованием"
+  },
+  "descs": {
+    "astana_kesaeva": "Инструкция: Проблема с техникой",
+    "stalingrad": "Инструкция: Проблема с техникой",
+    "accounting_1": "Инструкция по использованию альтернативного способа",
+    "accounting_2": "Инструкция по процедуре гашения ВСД",
+    "warehouse_1": "Полный цикл работы: от подготовки до выгрузки",
+    "sales_1": "Сбор информации об ассортименте в торговых точках",
+    "corporate_1": "Установка мессенджера Element",
+    "support_1": "Диагностика и решение проблем с интернетом"
+  },
+  "apps": {
+    "agent_plus": {
+      "name": "Agent Plus",
+      "description": "Приложение для торговых представителей",
+      "downloadUrl": "https://agentplus.ru/downloads/",
+      "instructions": "Сервер: qw1.czpt.ru Порт: 5556"
+    },
+    "rusdesk": {
+      "name": "RustDesk",
+      "description": "Удаленный доступ и техподдержка",
+      "downloadUrl": "https://github.com/rustdesk/rustdesk/releases/tag/1.4.6",
+      "instructions": "ID сервера: cmz.rustdesk.ru"
+    },
+    "excel": {
+      "name": "Microsoft Excel",
+      "description": "Работа с таблицами",
+      "downloadUrl": "https://play.google.com/store/apps/details?id=com.microsoft.office.excel",
+      "instructions": "Войдите с корпоративной учетной записью"
+    },
+    "element": {
+      "name": "Element",
+      "description": "Корпоративный мессенджер",
+      "downloadUrl": "https://element.io/download",
+      "instructions": "Сервер: matrix.crimeamilk.ru"
+    }
+  }
+}

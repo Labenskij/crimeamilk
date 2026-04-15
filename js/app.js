@@ -1,12 +1,5 @@
 /**
- * app.js - Центр инструкций Черноморского молокозавода
- * 
- * Логика:
- * 1. Загрузка data.json (справочники: магазины, отделы, названия)
- * 2. Загрузка инструкций из JSON-файлов по категориям
- * 3. Рендер карточек и таблиц
- * 4. Модальные окна с поддержкой Markdown + изображений
- * 5. Тёмная тема
+ * app.js - Центр инструкций Черноморского молокозавода (оптимизированная версия)
  */
 
 // ==================== ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ ====================
@@ -14,26 +7,17 @@ let appData = null;
 let instructionsCache = {};
 let currentOpenSection = null;
 
-// Категории для загрузки инструкций (файлы: accounting.json, sales.json и т.д.)
-const CATEGORIES = {
-    accounting: ['accounting_1', 'accounting_2', 'accounting_3', 'accounting_4', 'accounting_5', 'accounting_6', 'accounting_7', 'accounting_8'],
-    sales: ['sales_1', 'sales_2', 'sales_3', 'sales_4', 'sales_5'],
-    warehouse: ['warehouse_1'],
-    corporate: ['corporate_1', 'corporate_2'],
-    support: ['support_1', 'support_2', 'support_3'],
-    stores: ['astana_kesaeva', 'stalingrad', 'oktyabr', 'shevchenko', 'gorpischenko_127', 'gorpischenko_139', 'gorpischenko_143', 'boris_mihaylova', 'pytnica', 'econom5', 'rybniy', 'dimitrova', 'burger', 'kirova6', 'lenina9']
-};
-
 // ==================== ЗАГРУЗКА ДАННЫХ ====================
 async function loadAppData() {
+    // JSON файлы лежат в той же папке js/
     const res = await fetch('js/data.json');
     appData = await res.json();
 }
 
-// Загружаем JSON-файл категории (accounting.json, sales.json и т.д.)
 async function loadCategoryData(category) {
     if (instructionsCache[category]) return instructionsCache[category];
     try {
+        // JSON файлы лежат в той же папке js/
         const res = await fetch(`js/${category}.json`);
         if (!res.ok) return {};
         const data = await res.json();
@@ -45,14 +29,27 @@ async function loadCategoryData(category) {
     }
 }
 
-async function getInstruction(fileName) {
-    let category = null;
-    for (const [cat, files] of Object.entries(CATEGORIES)) {
-        if (files.includes(fileName)) { 
-            category = cat; 
-            break; 
-        }
+// Определение категории по имени файла через data.json
+function getCategoryForFile(fileName) {
+    if (!appData) return null;
+    
+    // Поиск в departments
+    for (const [key, dept] of Object.entries(appData.departments)) {
+        if (dept.files.includes(fileName)) return key;
     }
+    // Поиск в corporate
+    if (appData.corporate?.files?.includes(fileName)) return 'corporate';
+    // Поиск в support
+    if (appData.support?.files?.includes(fileName)) return 'support';
+    // Поиск в stores
+    for (const city of Object.values(appData.stores)) {
+        if (city.shops.some(shop => shop.file === fileName)) return 'stores';
+    }
+    return null;
+}
+
+async function getInstruction(fileName) {
+    const category = getCategoryForFile(fileName);
     if (!category) return null;
 
     const categoryData = await loadCategoryData(category);
@@ -75,6 +72,7 @@ function getDesc(fileName) {
 
 function getGoogleUrl(fileName, instructionData) {
     if (instructionData?.googleDocUrl) return instructionData.googleDocUrl;
+    
     // Поиск в магазинах
     if (appData?.stores) {
         for (const city of Object.values(appData.stores)) {
@@ -83,56 +81,6 @@ function getGoogleUrl(fileName, instructionData) {
         }
     }
     return null;
-}
-
-/**
- * Преобразует блок контента инструкции в HTML
- * Поддерживает:
- * - type: "text" -> Markdown (заголовки, списки, таблицы, жирный, курсив)
- * - type: "image" -> изображение с подписью, клик для fullscreen
- * - type: "note" -> цветной блок с важной информацией
- * - type: "step" -> нумерованный шаг с иконкой
- */
-function renderContentBlock(block, index) {
-    switch (block.type) {
-        case 'text':
-            return `<div class="instruction-text">${marked.parse(block.value)}</div>`;
-        
-        case 'image':
-            return `
-                <div class="instruction-image">
-                    <img src="${block.src}" alt="${block.alt || 'Изображение инструкции'}" loading="lazy" onclick="this.requestFullscreen?.()">
-                    ${block.caption ? `<div class="image-caption">📸 ${escapeHtml(block.caption)}</div>` : ''}
-                </div>
-            `;
-        
-        case 'note':
-            return `
-                <div class="instruction-note">
-                    <div class="instruction-note-icon">💡</div>
-                    <div class="instruction-note-text">${marked.parse(block.value)}</div>
-                </div>
-            `;
-        
-        case 'step':
-            return `
-                <div class="instruction-step">
-                    <div class="step-number">${block.number || index + 1}</div>
-                    <div class="step-content">${marked.parse(block.value)}</div>
-                </div>
-            `;
-        
-        case 'warning':
-            return `
-                <div class="instruction-warning">
-                    <div class="warning-icon">⚠️</div>
-                    <div class="warning-text">${marked.parse(block.value)}</div>
-                </div>
-            `;
-        
-        default:
-            return `<div class="instruction-text">${marked.parse(block.value || '')}</div>`;
-    }
 }
 
 // ==================== РЕНДЕР КОМПОНЕНТОВ ====================
@@ -201,6 +149,46 @@ function renderCorpAndSupport() {
     renderCards('support-cards', appData.support.files);
 }
 
+// ==================== РЕНДЕР КОНТЕНТА ИНСТРУКЦИИ ====================
+function renderContentBlock(block, index) {
+    const markedContent = (text) => marked.parse(text || '');
+    
+    switch (block.type) {
+        case 'text':
+            return `<div class="instruction-text">${markedContent(block.value)}</div>`;
+        case 'image':
+            return `
+                <div class="instruction-image">
+                    <img src="${block.src}" alt="${block.alt || 'Изображение инструкции'}" loading="lazy" onclick="this.requestFullscreen?.()">
+                    ${block.caption ? `<div class="image-caption">📸 ${escapeHtml(block.caption)}</div>` : ''}
+                </div>
+            `;
+        case 'note':
+            return `
+                <div class="instruction-note">
+                    <div class="instruction-note-icon">💡</div>
+                    <div class="instruction-note-text">${markedContent(block.value)}</div>
+                </div>
+            `;
+        case 'step':
+            return `
+                <div class="instruction-step">
+                    <div class="step-number">${block.number || index + 1}</div>
+                    <div class="step-content">${markedContent(block.value)}</div>
+                </div>
+            `;
+        case 'warning':
+            return `
+                <div class="instruction-warning">
+                    <div class="warning-icon">⚠️</div>
+                    <div class="warning-text">${markedContent(block.value)}</div>
+                </div>
+            `;
+        default:
+            return `<div class="instruction-text">${markedContent(block.value || '')}</div>`;
+    }
+}
+
 // ==================== МОДАЛЬНОЕ ОКНО ====================
 async function showModal(fileName) {
     const modal = document.getElementById('instructionModal');
@@ -218,11 +206,9 @@ async function showModal(fileName) {
     googleBtn.style.display = googleUrl ? 'inline-flex' : 'none';
     googleBtn.onclick = () => googleUrl && window.open(googleUrl, '_blank');
 
-    if (instruction?.content && Array.isArray(instruction.content) && instruction.content.length > 0) {
-        // Рендерим все блоки контента по порядку
+    if (instruction?.content && Array.isArray(instruction.content)) {
         modalBody.innerHTML = instruction.content.map((block, idx) => renderContentBlock(block, idx)).join('');
     } else if (instruction?.content && typeof instruction.content === 'string') {
-        // Если content строка (старый формат)
         modalBody.innerHTML = `<div class="instruction-text">${marked.parse(instruction.content)}</div>`;
     } else {
         modalBody.innerHTML = `<div class="instruction-text">${marked.parse('# Инструкция в разработке\n\nПожалуйста, обратитесь к ответственному специалисту.')}</div>`;
@@ -235,16 +221,12 @@ function closeModal() {
     document.getElementById('instructionModal').style.display = 'none'; 
 }
 
-// стили для новых типов блоков
 function ensureModalStyles() {
     if (document.getElementById('modal-dynamic-styles')) return;
     const style = document.createElement('style');
     style.id = 'modal-dynamic-styles';
     style.textContent = `
-        /* Блоки инструкций */
-        .instruction-text {
-            margin-bottom: 24px;
-        }
+        .instruction-text { margin-bottom: 24px; }
         .instruction-text h1 { font-size: 1.8rem; margin: 0 0 16px 0; color: #1f5e3a; }
         .instruction-text h2 { font-size: 1.4rem; margin: 24px 0 12px 0; padding-bottom: 6px; border-bottom: 2px solid #e2edf7; }
         .instruction-text h3 { font-size: 1.2rem; margin: 20px 0 10px 0; }
@@ -263,106 +245,27 @@ function ensureModalStyles() {
         body[data-theme="dark"] .instruction-text code,
         body[data-theme="dark"] .instruction-text pre { background: #1a2533; color: #e0e0e0; }
         
-        /* Изображения */
-        .instruction-image {
-            margin: 24px 0;
-            text-align: center;
-            background: #f8fafc;
-            border-radius: 20px;
-            padding: 16px;
-        }
-        .instruction-image img {
-            max-width: 100%;
-            max-height: 60vh;
-            border-radius: 16px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-            cursor: zoom-in;
-            transition: transform 0.2s;
-        }
+        .instruction-image { margin: 24px 0; text-align: center; background: #f8fafc; border-radius: 20px; padding: 16px; }
+        .instruction-image img { max-width: 100%; max-height: 60vh; border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.12); cursor: zoom-in; transition: transform 0.2s; }
         .instruction-image img:hover { transform: scale(1.01); }
-        .image-caption {
-            font-size: 0.85rem;
-            color: #6c7a8a;
-            margin-top: 12px;
-        }
+        .image-caption { font-size: 0.85rem; color: #6c7a8a; margin-top: 12px; }
         body[data-theme="dark"] .instruction-image { background: #1a2533; }
         body[data-theme="dark"] .image-caption { color: #9aa8b8; }
         
-        /* Блоки заметок */
-        .instruction-note {
-            background: #e8f4e8;
-            border-left: 5px solid #2b7a4b;
-            border-radius: 16px;
-            padding: 16px 20px;
-            margin: 20px 0;
-            display: flex;
-            gap: 14px;
-            align-items: flex-start;
-        }
-        .instruction-note-icon {
-            font-size: 1.6rem;
-        }
-        .instruction-note-text {
-            flex: 1;
-        }
-        .instruction-note-text p { margin: 0 0 8px 0; }
-        .instruction-note-text p:last-child { margin: 0; }
-        body[data-theme="dark"] .instruction-note {
-            background: #1e2f2a;
-            border-left-color: #7bc47f;
-        }
+        .instruction-note { background: #e8f4e8; border-left: 5px solid #2b7a4b; border-radius: 16px; padding: 16px 20px; margin: 20px 0; display: flex; gap: 14px; align-items: flex-start; }
+        .instruction-note-icon { font-size: 1.6rem; }
+        .instruction-note-text { flex: 1; }
+        body[data-theme="dark"] .instruction-note { background: #1e2f2a; border-left-color: #7bc47f; }
         
-        /* Блоки предупреждений */
-        .instruction-warning {
-            background: #fef4e8;
-            border-left: 5px solid #e67e22;
-            border-radius: 16px;
-            padding: 16px 20px;
-            margin: 20px 0;
-            display: flex;
-            gap: 14px;
-            align-items: flex-start;
-        }
-        .warning-icon {
-            font-size: 1.6rem;
-        }
-        .warning-text {
-            flex: 1;
-        }
-        .warning-text p { margin: 0 0 8px 0; }
-        .warning-text p:last-child { margin: 0; }
-        body[data-theme="dark"] .instruction-warning {
-            background: #2a241e;
-            border-left-color: #e67e22;
-        }
+        .instruction-warning { background: #fef4e8; border-left: 5px solid #e67e22; border-radius: 16px; padding: 16px 20px; margin: 20px 0; display: flex; gap: 14px; align-items: flex-start; }
+        .warning-icon { font-size: 1.6rem; }
+        .warning-text { flex: 1; }
+        body[data-theme="dark"] .instruction-warning { background: #2a241e; border-left-color: #e67e22; }
         
-        /* Пошаговые инструкции */
-        .instruction-step {
-            display: flex;
-            gap: 16px;
-            margin: 16px 0;
-            align-items: flex-start;
-        }
-        .step-number {
-            min-width: 32px;
-            height: 32px;
-            background: #2b7a4b;
-            color: white;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 0.9rem;
-        }
-        .step-content {
-            flex: 1;
-        }
-        .step-content p { margin: 0 0 8px 0; }
-        body[data-theme="dark"] .step-number {
-            background: #7bc47f;
-            color: #1a2533;
-        }
+        .instruction-step { display: flex; gap: 16px; margin: 16px 0; align-items: flex-start; }
+        .step-number { min-width: 32px; height: 32px; background: #2b7a4b; color: white; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.9rem; }
+        .step-content { flex: 1; }
+        body[data-theme="dark"] .step-number { background: #7bc47f; color: #1a2533; }
     `;
     document.head.appendChild(style);
 }
@@ -421,7 +324,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     renderCorpAndSupport();
     initTheme();
 
-    // Обработка якоря в URL
     if (location.hash) {
         const target = document.getElementById(location.hash.substring(1));
         if (target?.classList.contains('section')) {
@@ -432,7 +334,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
-    // Быстрая навигация
     document.querySelectorAll('.quick-nav a:not(#appsDownloadBtn)').forEach(anchor => {
         const href = anchor.getAttribute('href');
         if (href?.startsWith('#')) {
@@ -453,7 +354,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('appsDownloadBtn')?.addEventListener('click', (e) => { e.preventDefault(); showAppsModal(); });
 });
 
-// Закрытие модальных окон по Escape и клику на оверлей
 document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeModal(); closeAppsModal(); } });
 
 setTimeout(() => {

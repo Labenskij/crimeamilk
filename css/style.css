@@ -1,7 +1,8 @@
+/* ========== БАЗА ========== */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box
 }
 
 body {
@@ -13,24 +14,28 @@ body {
     transition: background 0.3s, color 0.3s;
 }
 
-/* ТЁМНАЯ ТЕМА */
+/* ========== ТЁМНАЯ ТЕМА (группировка по типам) ========== */
 body[data-theme="dark"] {
     background: #121826;
     color: #e8edf2;
 }
 
 body[data-theme="dark"] .section,
-body[data-theme="dark"] .header {
+body[data-theme="dark"] .header,
+body[data-theme="dark"] .card {
     background: #1a2533;
     border-color: #2d3e4f;
 }
 
-body[data-theme="dark"] .card {
+body[data-theme="dark"] .card,
+body[data-theme="dark"] .modal-container.fullscreen {
     background: #1e2a3a;
-    border-color: #2d3e4f;
 }
 
-body[data-theme="dark"] .card-title {
+body[data-theme="dark"] .card-title,
+body[data-theme="dark"] .city-title,
+body[data-theme="dark"] .store-table th,
+body[data-theme="dark"] .modal-container.fullscreen h3 {
     color: #7bc47f;
 }
 
@@ -41,7 +46,11 @@ body[data-theme="dark"] .card-desc {
 body[data-theme="dark"] .card-link,
 body[data-theme="dark"] .store-link,
 body[data-theme="dark"] .google-docs-btn,
-body[data-theme="dark"] .app-download-btn {
+body[data-theme="dark"] .app-download-btn,
+body[data-theme="dark"] .quick-nav a,
+body[data-theme="dark"] .theme-toggle,
+body[data-theme="dark"] .modal-footer button,
+body[data-theme="dark"] .download-link {
     background: #2a3a5c;
     color: #7bc47f;
     border-color: #3a4a6c;
@@ -53,40 +62,16 @@ body[data-theme="dark"] .note {
 }
 
 body[data-theme="dark"] .city-title {
-    color: #7bc47f;
     border-left-color: #4a9e6e;
 }
 
 body[data-theme="dark"] .store-table th {
     background: #1e2f3a;
-    color: #7bc47f;
 }
 
 body[data-theme="dark"] .badge-id {
     background: #2a3a4a;
     color: #c0d6e8;
-}
-
-body[data-theme="dark"] .quick-nav a,
-body[data-theme="dark"] .theme-toggle,
-body[data-theme="dark"] .app-download-btn {
-    background: #2a3a5c;
-    color: #7bc47f;
-    border-color: #3a4a6c;
-}
-
-body[data-theme="dark"] .modal-container.fullscreen {
-    background: #1e2a3a;
-    color: #e0e0e0;
-}
-
-body[data-theme="dark"] .modal-container.fullscreen h3 {
-    color: #7bc47f;
-}
-
-body[data-theme="dark"] .modal-footer button {
-    background: #2a3a5c;
-    color: #7bc47f;
 }
 
 body[data-theme="dark"] .section-header {
@@ -98,11 +83,17 @@ body[data-theme="dark"] .section-header:hover {
     background: #1f2c3d;
 }
 
+body[data-theme="dark"] .image-caption {
+    color: #aaa;
+}
+
+/* ========== КОНТЕЙНЕРЫ ========== */
 .container {
     max-width: 1400px;
     margin: 0 auto;
 }
 
+/* ========== ХЕДЕР ========== */
 .header {
     display: flex;
     align-items: center;
@@ -113,7 +104,6 @@ body[data-theme="dark"] .section-header:hover {
     background: white;
     padding: 16px 28px;
     border-radius: 48px;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.02);
     border: 1px solid #e2edf7;
 }
 
@@ -156,6 +146,7 @@ body[data-theme="dark"] .company p {
     color: #9aa8b8;
 }
 
+/* ========== НАВИГАЦИЯ ========== */
 .quick-nav {
     display: flex;
     flex-wrap: wrap;
@@ -181,7 +172,6 @@ body[data-theme="dark"] .company p {
 }
 
 .theme-toggle {
-    background: #f0f6fe;
     padding: 8px 18px;
 }
 
@@ -192,10 +182,10 @@ body[data-theme="dark"] .company p {
     transform: translateY(-2px);
 }
 
+/* ========== СЕКЦИИ (АККОРДЕОН) ========== */
 .section {
     background: white;
     border-radius: 32px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
     margin-bottom: 28px;
     overflow: hidden;
     border: 1px solid #e2edf7;
@@ -245,6 +235,7 @@ body[data-theme="dark"] .company p {
     transform: rotate(180deg);
 }
 
+/* ========== КАРТОЧКИ ========== */
 .grid-cards {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
@@ -261,7 +252,6 @@ body[data-theme="dark"] .company p {
 
 .card:hover {
     border-color: #caddf0;
-    box-shadow: 0 12px 22px rgba(0, 0, 0, 0.04);
     transform: translateY(-2px);
 }
 
@@ -303,6 +293,7 @@ body[data-theme="dark"] .company p {
     background: linear-gradient(90deg, #cde2d6, #a6c8b4, #cde2d6);
 }
 
+/* ========== ТАБЛИЦА МАГАЗИНОВ ========== */
 .store-table {
     width: 100%;
     border-collapse: collapse;
@@ -335,6 +326,16 @@ body[data-theme="dark"] .company p {
     display: inline-block;
 }
 
+.city-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #1f5e3a;
+    margin: 24px 0 16px;
+    padding-left: 8px;
+    border-left: 4px solid #2b7a4b;
+}
+
+/* ========== БЛОКИ ЗАМЕТОК ========== */
 .note {
     background: #fef7e0;
     padding: 12px 20px;
@@ -342,13 +343,6 @@ body[data-theme="dark"] .company p {
     font-size: 0.8rem;
     color: #a67819;
     margin-top: 24px;
-}
-
-.add-hint {
-    text-align: right;
-    font-size: 0.7rem;
-    color: #9bb7b0;
-    margin-top: 20px;
 }
 
 hr {
@@ -365,16 +359,7 @@ footer {
     padding-top: 28px;
 }
 
-.city-title {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: #1f5e3a;
-    margin: 24px 0 16px;
-    padding-left: 8px;
-    border-left: 4px solid #2b7a4b;
-}
-
-/* МОДАЛЬНОЕ ОКНО */
+/* ========== МОДАЛЬНЫЕ ОКНА ========== */
 .fullscreen-modal {
     position: fixed;
     top: 0;
@@ -435,14 +420,12 @@ footer {
     line-height: 1.6;
 }
 
-/* Стили для изображений внутри модального окна */
 .modal-body-markdown img {
     max-width: 100%;
     height: auto;
     display: block;
     margin: 16px 0;
     border-radius: 16px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .modal-body-markdown h1,
@@ -480,7 +463,7 @@ footer {
     opacity: 0.85;
 }
 
-/* Стили для карточек приложений в модальном окне */
+/* ========== КАРТОЧКИ ПРИЛОЖЕНИЙ ========== */
 .app-card {
     background: #f8fafc;
     border-radius: 20px;
@@ -488,11 +471,6 @@ footer {
     margin-bottom: 16px;
     border: 1px solid #e2edf7;
     transition: all 0.2s;
-}
-
-body[data-theme="dark"] .app-card {
-    background: #253141;
-    border-color: #3a4a6c;
 }
 
 .app-card:hover {
@@ -506,18 +484,10 @@ body[data-theme="dark"] .app-card {
     color: #1f5e3a;
 }
 
-body[data-theme="dark"] .app-card h4 {
-    color: #7bc47f;
-}
-
 .app-card p {
     font-size: 0.9rem;
     color: #4a6f62;
     margin-bottom: 12px;
-}
-
-body[data-theme="dark"] .app-card p {
-    color: #b0bec5;
 }
 
 .download-link {
@@ -539,12 +509,36 @@ body[data-theme="dark"] .app-card p {
     transform: translateY(-2px);
 }
 
-body[data-theme="dark"] .download-link {
-    background: #2a3a5c;
-    color: #7bc47f;
+/* ========== ИНСТРУКЦИИ (динамические стили) ========== */
+.instruction-text {
+    margin-bottom: 20px;
 }
 
-/* АДАПТИВ ДЛЯ МОБИЛЬНЫХ ТЕЛЕФОНОВ */
+.instruction-text h1,
+.instruction-text h2,
+.instruction-text h3 {
+    margin: 1em 0 0.5em;
+}
+
+.instruction-image {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.instruction-image img {
+    max-width: 100%;
+    max-height: 70vh;
+    border-radius: 16px;
+    cursor: zoom-in;
+}
+
+.image-caption {
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 8px;
+}
+
+/* ========== АДАПТИВ ========== */
 @media (max-width: 700px) {
     body {
         padding: 16px 12px 32px;
@@ -611,37 +605,4 @@ body[data-theme="dark"] .download-link {
     .store-table {
         font-size: 0.7rem;
     }
-}
-
-.instruction-text {
-    margin-bottom: 20px;
-}
-
-.instruction-text h1,
-.instruction-text h2,
-.instruction-text h3 {
-    margin: 1em 0 0.5em;
-}
-
-.instruction-image {
-    margin: 20px 0;
-    text-align: center;
-}
-
-.instruction-image img {
-    max-width: 100%;
-    max-height: 70vh;
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    cursor: zoom-in;
-}
-
-.image-caption {
-    font-size: 0.85rem;
-    color: #666;
-    margin-top: 8px;
-}
-
-body[data-theme="dark"] .image-caption {
-    color: #aaa;
 }

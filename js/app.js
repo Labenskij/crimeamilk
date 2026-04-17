@@ -197,7 +197,7 @@ async function showModal(fileName) {
         if (instruction?.content?.length) {
             modalBody.innerHTML = instruction.content.map(renderContentBlock).join('');
         } else {
-            modalBody.innerHTML = markedParse('# Инструкция в разработке\n\nПожалуйста, обратитесь к ответственному специалисту.');
+            modalBody.innerHTML = markedParse('# Инструкция в разработке\n\nперейдите по сыллке, через кнопку "Открыть в Google Docs" ↓');
         }
         
         modal.querySelector('.modal-container')?.scrollTo(0, 0);

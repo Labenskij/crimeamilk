@@ -215,7 +215,7 @@
       "name": "RustDesk",
       "description": "Удаленный доступ и техподдержка",
       "downloadUrl": "https://github.com/rustdesk/rustdesk/releases/tag/1.4.6",
-      "instructions": "ID сервера: cmz.rustdesk.ru"
+      "instructions": "ID сервера: =0nI9kENNRWcoNTV0VlVRtCOBR1VCVXdKl3ZxVlQmxmcQZESyFXOKZUNBVGR2JmI6ISeltmIsISdy5Cdwp3YuEzdn9yL6MHc0RHaiojIpBXYiwiI1JnL0Bnej5SM3dmI6ISehxWZyJCLiUncuQHc6NmLxc3ZiojI0N3boJye"
     },
     "excel": {
       "name": "Microsoft Excel",

@@ -1,21 +1,21 @@
 {
   "corporate_1": {
     "title": "Установка Element",
-    "googleDocUrl": "https://element.io/download",
+    "googleDocUrl": "https://docs.google.com/document/d/1mgGB3ItLeRpDQj8VBB-1A7uWBmu6Je0kGzL0TT8Yy_w/edit?tab=t.0#heading=h.4nj7ldk6wp0x",
     "content": [
       {
         "type": "text",
-        "value": "# Установка Element\n\n1. Скачайте с element.io\n2. Установите\n3. Сервер: matrix.crimeamilk.ru"
+        "value": "# Установка Element\n\n## Общие условия регистрации\n- Укажите полные ФИО (после авторизации, в настройках аккаунта).\n- Рекомендуем настоящие личные фотографии.\n- По вопросам обращайтесь к Станиславу: +7(978)574 05 58.\n\n## Установка на ПК (Windows)\n1. Перейдите на страницу загрузки → Download Element https://element.io/download\n2. Выберите версию Desktop Windows (64-bit).\n3. Запустите Element Setup.exe → дождитесь автоматической установки.\n\n## Вход и регистрация на ПК\n1. Нажмите «Войти» → «Редактировать» → «Другой домашний сервер».\n2. Введите адрес сервера: `matrix.crimeamilk.ru`\n3. Создание учётной записи:\n   - **Имя (логин)**: строчные буквы, пробелы → тире. Пример: `labenskiy-stanisalv`\n   - **Пароль**: минимум 6 символов, только латиница + цифры. Пример: `Geek357+`\n4. После входа перейдите в «Element | Общая ЧЗРТ» https://element.crimeamilk.ru/#/room/#czpt:matrix.crimeamilk.ru\n\n## Установка на мобильное устройство (Android / iOS)\n1. Скачайте из Google Play (Android) или App Store (iOS).\n2. Откройте приложение → «Войти вручную» → «Сменить поставщика учётной записи» → «Другое».\n3. Введите сервер: `matrix.crimeamilk.ru` → «Продолжить».\n4. Введите логин и пароль (регистрация только через компьютер)."
       }
     ]
   },
   "corporate_2": {
     "title": "Microsoft Excel",
-    "googleDocUrl": "https://play.google.com/store/apps/details?id=com.microsoft.office.excel",
+    "googleDocUrl": "",
     "content": [
       {
         "type": "text",
-        "value": "# Установка Excel\n\nСкачайте из Google Play и войдите с корпоративной учётной записью"
+        "value": "# Установка Excel\n\nСкачайте из Google Play (Android) или App Store (iOS)."
       }
     ]
   }

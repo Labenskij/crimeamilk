@@ -1,6 +1,6 @@
 /**
  * Центр инструкций Черноморского молокозавода
- * @version 2.1
+ * @version 3.0 - с системой вложенных модальных окон
  */
 
 // ==================== ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ ====================
@@ -11,6 +11,108 @@ let itUnlocked = false;
 let currentItFilter = 'all';
 let itSearchQuery = '';
 let itInstructionsData = [];
+
+// ==================== СИСТЕМА СТЕКА МОДАЛЬНЫХ ОКОН ====================
+const modalStack = [];
+
+// Базовые z-index для уровней вложенности
+const BASE_Z_INDEX = 1000;
+const Z_INDEX_STEP = 100;
+
+// Функция получения z-index для уровня
+function getZIndexForLevel(level) {
+    return BASE_Z_INDEX + (level * Z_INDEX_STEP);
+}
+
+// Функция получения opacity overlay для уровня
+function getOverlayOpacityForLevel(level) {
+    return Math.min(0.75 + (level * 0.08), 0.95);
+}
+
+// Функция получения blur для уровня
+function getBlurForLevel(level) {
+    return Math.min(6 + (level * 2), 16);
+}
+
+// Обновление видимости всех модалок в стеке
+function updateModalStack() {
+    modalStack.forEach((item, index) => {
+        const modal = item.modal;
+        const level = index;
+        const zIndex = getZIndexForLevel(level);
+        const overlayOpacity = getOverlayOpacityForLevel(level);
+        const blurAmount = getBlurForLevel(level);
+        
+        modal.style.display = 'flex';
+        modal.style.zIndex = zIndex;
+        
+        const overlay = modal.querySelector('.modal-overlay');
+        if (overlay) {
+            overlay.style.backgroundColor = `rgba(0, 0, 0, ${overlayOpacity})`;
+            overlay.style.backdropFilter = `blur(${blurAmount}px)`;
+        }
+    });
+}
+
+// Добавление модалки в стек
+function pushToStack(modal, data) {
+    modalStack.push({ modal, data });
+    updateModalStack();
+}
+
+// Удаление последней модалки из стека (без закрытия)
+function popFromStack() {
+    const removed = modalStack.pop();
+    if (removed) {
+        removed.modal.style.display = 'none';
+    }
+    updateModalStack();
+    return removed;
+}
+
+// Закрытие текущей (верхней) модалки
+function closeCurrentModal() {
+    if (modalStack.length === 0) return;
+    popFromStack();
+}
+
+// Закрытие всех модалок
+function closeAllModals() {
+    while (modalStack.length > 0) {
+        const item = modalStack.pop();
+        item.modal.style.display = 'none';
+    }
+    updateModalStack();
+}
+
+// Возврат к предыдущей модалке (закрыть текущую)
+function goBackToPreviousModal() {
+    if (modalStack.length <= 1) {
+        // Если это последняя модалка - просто закрываем
+        closeCurrentModal();
+    } else {
+        // Закрываем только верхнюю
+        popFromStack();
+    }
+}
+
+// Построение хлебных крошек
+function buildBreadcrumb(stackData) {
+    if (!stackData || stackData.length === 0) return '';
+    
+    const items = stackData.map((item, index) => {
+        const isLast = index === stackData.length - 1;
+        const title = item.data?.title || 'Инструкция';
+        return `
+            <span class="modal-breadcrumb-item ${isLast ? 'active' : ''}" data-breadcrumb-index="${index}">
+                ${escapeHtml(title)}
+            </span>
+            ${!isLast ? '<span class="modal-breadcrumb-sep">→</span>' : ''}
+        `;
+    }).join('');
+    
+    return `<div class="modal-breadcrumb">${items}</div>`;
+}
 
 // ==================== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ====================
 const escapeHtml = (str) => str ? str.replace(/[&<>]/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[m])) : '';
@@ -80,18 +182,15 @@ function showPasswordModal(callback, file) {
 
     input.value = '';
     errorDiv.style.display = 'none';
-    modal.style.display = 'flex';
-
-    const closeModal = () => {
-        modal.style.display = 'none';
-        input.value = '';
-        errorDiv.style.display = 'none';
-    };
-
+    
+    // Добавляем в стек
+    pushToStack(modal, { type: 'password', file: file });
+    
+    // Настраиваем кнопки
     const handleConfirm = () => {
         if (input.value === 'Hesoyam1607') {
             itUnlocked = true;
-            closeModal();
+            closeCurrentModal();
             if (callback) callback(file);
             renderDepartments();
         } else {
@@ -104,13 +203,19 @@ function showPasswordModal(callback, file) {
 
     const handleKeydown = (e) => {
         if (e.key === 'Enter') handleConfirm();
-        if (e.key === 'Escape') closeModal();
+        if (e.key === 'Escape') closeCurrentModal();
+    };
+
+    const closeHandler = () => {
+        if (modalStack[modalStack.length - 1]?.modal === modal) {
+            closeCurrentModal();
+        }
     };
 
     document.getElementById('passwordConfirmBtn').onclick = handleConfirm;
-    document.getElementById('passwordCancelBtn').onclick = closeModal;
-    modal.querySelector('.modal-close').onclick = closeModal;
-    modal.querySelector('.modal-overlay').onclick = closeModal;
+    document.getElementById('passwordCancelBtn').onclick = closeHandler;
+    modal.querySelector('.modal-close').onclick = closeHandler;
+    modal.querySelector('.modal-overlay').onclick = closeHandler;
     input.onkeydown = handleKeydown;
     setTimeout(() => input.focus(), 50);
 }
@@ -149,7 +254,7 @@ function renderStores() {
     container.innerHTML = Object.entries(appData.stores || {}).map(([_, city]) => `
         <div class="city-title">📍 ${escapeHtml(city.city)}</div>
         <table class="store-table"><thead><tr><th>ID</th><th>Адрес</th><th>Инструкция</th></tr></thead>
-        <tbody>${city.shops.map(shop => `<tr><td><span class="badge-id">${escapeHtml(shop.id)}</span></td><td>${escapeHtml(shop.address)}</td><td><a class="store-link" href="#" data-file="${shop.file}">📄 Открыть</a></td></tr>`).join('')}</tbody></table>
+        <tbody>${city.shops.map(shop => `<tr><td><span class="badge-id">${escapeHtml(shop.id)}</span></td><td>${escapeHtml(shop.address)}</td><tr><a class="store-link" href="#" data-file="${shop.file}">📄 Открыть</a></td></tr>`).join('')}</tbody></table>
     `).join('');
 
     document.querySelectorAll('.store-link').forEach(link => {
@@ -239,20 +344,62 @@ function renderContentBlock(block, idx) {
     return renderer ? renderer(block, idx) : `<div class="instruction-text">${markedParse(block.value || '')}</div>`;
 }
 
-// ==================== МОДАЛЬНОЕ ОКНО ====================
-async function showModal(fileName) {
+// ==================== ОСНОВНОЕ МОДАЛЬНОЕ ОКНО ДЛЯ ИНСТРУКЦИЙ ====================
+async function showModal(fileName, additionalTitle = null) {
     if (!fileName) return;
-    const modal = document.getElementById('instructionModal');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalBody = document.getElementById('modalBody');
-    const googleBtn = document.getElementById('modalGoogleBtn');
-    if (!modal) return;
-
-    document.getElementById('modalBreadcrumb').style.display = 'none';
-    modalTitle.innerText = getTitle(fileName);
-    modalBody.innerHTML = '<div style="text-align:center;padding:40px;">📥 Загрузка...</div>';
-    modal.style.display = 'flex';
-
+    
+    // Получаем или создаём модальное окно
+    let modal = document.getElementById('instructionModal');
+    if (!modal) {
+        // Создаём модальное окно, если его нет
+        modal = createModalElement();
+    }
+    
+    const modalTitle = modal.querySelector('#modalTitle');
+    const modalBody = modal.querySelector('#modalBody');
+    const googleBtn = modal.querySelector('#modalGoogleBtn');
+    const backBtn = modal.querySelector('#modalBackBtn');
+    const breadcrumbContainer = modal.querySelector('#modalBreadcrumb');
+    
+    const title = additionalTitle || getTitle(fileName);
+    modalTitle.innerText = title;
+    
+    // Показываем индикатор загрузки
+    modalBody.innerHTML = `
+        <div class="loading-indicator">
+            <div class="spinner"></div>
+            <div>📥 Загрузка инструкции...</div>
+        </div>
+    `;
+    
+    // Добавляем в стек
+    const stackData = {
+        fileName: fileName,
+        title: title,
+        type: 'instruction'
+    };
+    pushToStack(modal, stackData);
+    
+    // Обновляем хлебные крошки
+    updateModalBreadcrumb(modal);
+    
+    // Настраиваем кнопку "Назад"
+    if (backBtn) {
+        backBtn.onclick = () => {
+            goBackToPreviousModal();
+        };
+    }
+    
+    // Настраиваем закрытие
+    const closeHandler = () => {
+        if (modalStack[modalStack.length - 1]?.modal === modal) {
+            goBackToPreviousModal();
+        }
+    };
+    
+    modal.querySelector('.modal-close').onclick = closeHandler;
+    modal.querySelector('.modal-overlay').onclick = closeHandler;
+    
     try {
         const instruction = await getInstruction(fileName);
         const googleUrl = getGoogleUrl(fileName, instruction);
@@ -261,23 +408,147 @@ async function showModal(fileName) {
         modalBody.innerHTML = instruction?.content?.length ? instruction.content.map(renderContentBlock).join('') : markedParse('# Инструкция в разработке\n\nПерейдите по ссылке через кнопку "Открыть в Google Docs" ↓');
         modal.querySelector('.modal-container')?.scrollTo(0, 0);
     } catch (error) {
+        console.error('Ошибка загрузки инструкции:', error);
         modalBody.innerHTML = '<div style="color:red;">⚠️ Ошибка загрузки инструкции</div>';
         googleBtn.style.display = 'none';
     }
 }
 
-function closeModal() { document.getElementById('instructionModal').style.display = 'none'; }
+// Создание элемента модального окна (если не существует)
+function createModalElement() {
+    const modalHTML = `
+        <div id="instructionModal" class="fullscreen-modal">
+            <div class="modal-overlay"></div>
+            <div class="modal-container fullscreen">
+                <div class="modal-depth-indicator"></div>
+                <button class="modal-close">&times;</button>
+                <div id="modalBreadcrumb" class="modal-breadcrumb"></div>
+                <h3 id="modalTitle">📄 Инструкция</h3>
+                <div id="modalBody" class="modal-body-markdown"></div>
+                <div class="modal-footer">
+                    <div class="modal-footer-left">
+                        <button id="modalBackBtn" class="modal-back-btn">← Назад</button>
+                    </div>
+                    <div class="modal-footer-right">
+                        <button id="modalGoogleBtn" class="google-docs-btn">🔗 Открыть в Google Docs</button>
+                        <button id="modalCloseBtn">Закрыть окно</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+    const modal = document.getElementById('instructionModal');
+    
+    // Настройка кнопки закрытия
+    const closeBtn = modal.querySelector('#modalCloseBtn');
+    if (closeBtn) {
+        closeBtn.onclick = () => goBackToPreviousModal();
+    }
+    
+    return modal;
+}
+
+// Обновление хлебных крошек для конкретной модалки
+function updateModalBreadcrumb(modal) {
+    const breadcrumbContainer = modal.querySelector('#modalBreadcrumb');
+    if (!breadcrumbContainer) return;
+    
+    // Находим все элементы в стеке, которые относятся к этому типу модалки
+    const stackItems = [];
+    for (let i = 0; i < modalStack.length; i++) {
+        const item = modalStack[i];
+        if (item.modal.id === 'instructionModal' || item.modal.id === 'itDashboardModal') {
+            stackItems.push(item);
+        }
+    }
+    
+    if (stackItems.length <= 1) {
+        breadcrumbContainer.style.display = 'none';
+        return;
+    }
+    
+    breadcrumbContainer.style.display = 'flex';
+    
+    const items = stackItems.map((item, index) => {
+        const isLast = index === stackItems.length - 1;
+        const title = item.data?.title || (item.modal.id === 'itDashboardModal' ? 'IT-библиотека' : 'Инструкция');
+        return `
+            <span class="modal-breadcrumb-item ${isLast ? 'active' : ''}" data-breadcrumb-index="${index}">
+                ${escapeHtml(title.length > 30 ? title.substring(0, 27) + '...' : title)}
+            </span>
+            ${!isLast ? '<span class="modal-breadcrumb-sep">→</span>' : ''}
+        `;
+    }).join('');
+    
+    breadcrumbContainer.innerHTML = items;
+    
+    // Добавляем обработчики для кликов по хлебным крошкам
+    breadcrumbContainer.querySelectorAll('.modal-breadcrumb-item:not(.active)').forEach(el => {
+        el.addEventListener('click', () => {
+            const targetIndex = parseInt(el.dataset.breadcrumbIndex);
+            if (!isNaN(targetIndex) && targetIndex < stackItems.length - 1) {
+                // Закрываем все модалки после targetIndex
+                while (modalStack.length > targetIndex + 1) {
+                    popFromStack();
+                }
+            }
+        });
+    });
+    
+    // Обновляем индикатор глубины
+    const depthIndicator = modal.querySelector('.modal-depth-indicator');
+    if (depthIndicator) {
+        const depth = stackItems.length;
+        if (depth > 1) {
+            depthIndicator.textContent = `📁 Уровень ${depth}`;
+            depthIndicator.style.display = 'block';
+        } else {
+            depthIndicator.style.display = 'none';
+        }
+    }
+}
 
 // ==================== ПРИЛОЖЕНИЯ ====================
 function showAppsModal() {
-    const modal = document.getElementById('appsModal');
-    if (!modal || !appData) return;
+    let modal = document.getElementById('appsModal');
+    if (!modal) {
+        const modalHTML = `
+            <div id="appsModal" class="fullscreen-modal">
+                <div class="modal-overlay"></div>
+                <div class="modal-container fullscreen">
+                    <button class="modal-close">&times;</button>
+                    <h3>📱 Скачивание корпоративных приложений</h3>
+                    <div id="appsModalBody" class="modal-body-markdown"></div>
+                    <div class="modal-footer">
+                        <div class="modal-footer-left">
+                            <button id="appsModalBackBtn" class="modal-back-btn">← Назад</button>
+                        </div>
+                        <div class="modal-footer-right">
+                            <button id="appsModalCloseBtn">Закрыть окно</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        document.body.insertAdjacentHTML('beforeend', modalHTML);
+        modal = document.getElementById('appsModal');
+        
+        const closeHandler = () => goBackToPreviousModal();
+        modal.querySelector('.modal-close').onclick = closeHandler;
+        modal.querySelector('.modal-overlay').onclick = closeHandler;
+        modal.querySelector('#appsModalCloseBtn').onclick = closeHandler;
+        modal.querySelector('#appsModalBackBtn').onclick = () => goBackToPreviousModal();
+    }
+    
+    if (!appData) return;
+    
     document.getElementById('appsModalBody').innerHTML = Object.values(appData.apps || {}).map(app => `
         <div class="app-card"><h4>📱 ${escapeHtml(app.name)}</h4><p>${escapeHtml(app.description)}</p>${app.instructions ? `<p><strong>📌 Настройки:</strong> ${escapeHtml(app.instructions)}</p>` : ''}<a href="${app.downloadUrl}" target="_blank" class="download-link">⬇️ Скачать</a></div>
     `).join('');
-    modal.style.display = 'flex';
+    
+    pushToStack(modal, { type: 'apps', title: 'Приложения' });
 }
-function closeAppsModal() { document.getElementById('appsModal').style.display = 'none'; }
 
 // ==================== ТЕМА ====================
 function initTheme() {
@@ -354,41 +625,102 @@ function updateFilterButtons() {
 }
 
 async function showItDashboard() {
-    const modal = document.getElementById('itDashboardModal');
-    if (!modal) return;
+    let modal = document.getElementById('itDashboardModal');
+    if (!modal) {
+        // Создаём модалку IT-дашборда, если её нет
+        const modalHTML = `
+            <div id="itDashboardModal" class="fullscreen-modal it-dashboard-modal">
+                <div class="modal-overlay"></div>
+                <div class="modal-container it-dashboard-container">
+                    <button class="modal-close">&times;</button>
+                    <div class="it-breadcrumb" id="itBreadcrumb">
+                        <span class="breadcrumb-item active">📁 IT-библиотека</span>
+                    </div>
+                    <div class="it-dashboard-header">
+                        <h3>🖥️ IT-отдел <span class="it-badge">Защищенный раздел</span></h3>
+                        <div class="it-search-bar">
+                            <input type="text" id="itSearchInput" placeholder="🔍 Поиск инструкций..." class="it-search-input">
+                            <button id="itClearSearch" class="it-clear-search" style="display: none;">✖</button>
+                        </div>
+                    </div>
+                    <div class="it-filters">
+                        <button class="it-filter-btn active" data-filter="all">📋 Все</button>
+                        <button class="it-filter-btn" data-filter="stores">🏪 Магазины</button>
+                        <button class="it-filter-btn" data-filter="sales_agents">🚀 Торговые агенты</button>
+                        <button class="it-filter-btn" data-filter="pos">🖨️ Кассы / ККТ</button>
+                        <button class="it-filter-btn" data-filter="servers">🖥️ Серверы</button>
+                        <button class="it-filter-btn" data-filter="local_settings">⚙️ Локальные настройки</button>
+                    </div>
+                    <div id="itCardsContainer" class="it-cards-container"></div>
+                    <div class="modal-footer">
+                        <div class="modal-footer-left">
+                            <button id="itDashboardBackBtn" class="modal-back-btn">← Назад</button>
+                        </div>
+                        <div class="modal-footer-right">
+                            <button id="itDashboardCloseBtn">Закрыть окно</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        document.body.insertAdjacentHTML('beforeend', modalHTML);
+        modal = document.getElementById('itDashboardModal');
+        
+        const closeHandler = () => goBackToPreviousModal();
+        modal.querySelector('.modal-close').onclick = closeHandler;
+        modal.querySelector('.modal-overlay').onclick = closeHandler;
+        modal.querySelector('#itDashboardCloseBtn').onclick = closeHandler;
+        modal.querySelector('#itDashboardBackBtn').onclick = () => goBackToPreviousModal();
+        
+        // Настройка поиска и фильтров
+        const searchInput = modal.querySelector('#itSearchInput');
+        const clearBtn = modal.querySelector('#itClearSearch');
+        if (searchInput) {
+            searchInput.addEventListener('input', (e) => {
+                itSearchQuery = e.target.value;
+                if (clearBtn) clearBtn.style.display = itSearchQuery ? 'block' : 'none';
+                renderItDashboard(currentItFilter, itSearchQuery);
+            });
+        }
+        if (clearBtn) {
+            clearBtn.addEventListener('click', () => {
+                itSearchQuery = '';
+                if (searchInput) searchInput.value = '';
+                clearBtn.style.display = 'none';
+                renderItDashboard(currentItFilter, '');
+            });
+        }
+        modal.querySelectorAll('.it-filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                currentItFilter = btn.dataset.filter;
+                itSearchQuery = '';
+                if (searchInput) searchInput.value = '';
+                if (clearBtn) clearBtn.style.display = 'none';
+                renderItDashboard(currentItFilter, '');
+                updateFilterButtons();
+                resetItBreadcrumb();
+            });
+        });
+    }
+    
     if (!itInstructionsData.length) await loadItInstructions();
     currentItFilter = 'all';
     itSearchQuery = '';
-    const searchInput = document.getElementById('itSearchInput');
+    const searchInput = modal.querySelector('#itSearchInput');
     if (searchInput) searchInput.value = '';
-    document.getElementById('itClearSearch').style.display = 'none';
+    const clearBtn = modal.querySelector('#itClearSearch');
+    if (clearBtn) clearBtn.style.display = 'none';
     resetItBreadcrumb();
     renderItDashboard('all', '');
     updateFilterButtons();
-    modal.style.display = 'flex';
+    
+    pushToStack(modal, { type: 'it-dashboard', title: 'IT-библиотека' });
 }
-
-function closeItDashboard() { document.getElementById('itDashboardModal').style.display = 'none'; }
 
 async function showItInstruction(fileId) {
     const instruction = itInstructionsData.find(i => i.id === fileId);
     if (!instruction) return;
-    const modal = document.getElementById('instructionModal');
-    document.getElementById('modalBreadcrumb').style.display = 'flex';
-    document.getElementById('modalTitle').innerText = instruction.title;
-    document.getElementById('modalBody').innerHTML = '<div style="text-align:center;padding:40px;">📥 Загрузка...</div>';
-    modal.style.display = 'flex';
-
-    try {
-        const full = await getInstruction(fileId);
-        const googleUrl = getGoogleUrl(fileId, full);
-        const googleBtn = document.getElementById('modalGoogleBtn');
-        googleBtn.style.display = googleUrl ? 'inline-flex' : 'none';
-        if (googleUrl) googleBtn.onclick = () => window.open(googleUrl, '_blank');
-        document.getElementById('modalBody').innerHTML = full?.content?.length ? full.content.map(renderContentBlock).join('') : markedParse('# Инструкция в разработке');
-    } catch (error) {
-        document.getElementById('modalBody').innerHTML = '<div style="color:red;">⚠️ Ошибка загрузки</div>';
-    }
+    await showModal(fileId, instruction.title);
 }
 
 // ==================== ИНИЦИАЛИЗАЦИЯ ====================
@@ -420,47 +752,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     });
 
-    document.getElementById('appsDownloadBtn')?.addEventListener('click', (e) => { e.preventDefault(); showAppsModal(); });
-
-    // IT-дашборд события
-    const searchInput = document.getElementById('itSearchInput');
-    const clearBtn = document.getElementById('itClearSearch');
-    if (searchInput) searchInput.addEventListener('input', (e) => {
-        itSearchQuery = e.target.value;
-        if (clearBtn) clearBtn.style.display = itSearchQuery ? 'block' : 'none';
-        renderItDashboard(currentItFilter, itSearchQuery);
+    document.getElementById('appsDownloadBtn')?.addEventListener('click', (e) => { 
+        e.preventDefault(); 
+        showAppsModal(); 
     });
-    if (clearBtn) clearBtn.addEventListener('click', () => {
-        itSearchQuery = '';
-        if (searchInput) searchInput.value = '';
-        clearBtn.style.display = 'none';
-        renderItDashboard(currentItFilter, '');
-    });
-    document.querySelectorAll('.it-filter-btn').forEach(btn => btn.addEventListener('click', () => {
-        currentItFilter = btn.dataset.filter;
-        itSearchQuery = '';
-        if (searchInput) searchInput.value = '';
-        if (clearBtn) clearBtn.style.display = 'none';
-        renderItDashboard(currentItFilter, '');
-        updateFilterButtons();
-        resetItBreadcrumb();
-    }));
 
-    // Закрытие модалок
+    // Глобальная обработка Escape
     document.addEventListener('keydown', e => {
         if (e.key === 'Escape') {
-            closeModal();
-            closeAppsModal();
-            closeItDashboard();
-            const pass = document.getElementById('passwordModal');
-            if (pass) pass.style.display = 'none';
+            goBackToPreviousModal();
         }
     });
-    document.querySelectorAll('.modal-overlay').forEach(overlay => overlay.addEventListener('click', () => {
-        closeModal();
-        closeAppsModal();
-        closeItDashboard();
-        const pass = document.getElementById('passwordModal');
-        if (pass) pass.style.display = 'none';
-    }));
 });

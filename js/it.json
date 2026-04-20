@@ -1,0 +1,205 @@
+{
+  "it_1": {
+    "title": "Настройка кассового ПО в магазинах",
+    "category": "stores",
+    "content": [
+      {
+        "type": "text",
+        "value": "# Настройка кассового ПО\n\nИнструкция для IT-специалистов."
+      },
+      {
+        "type": "step",
+        "number": 1,
+        "value": "Подключитесь к кассовому терминалу"
+      },
+      {
+        "type": "step",
+        "number": 2,
+        "value": "Проверьте версию драйвера ККТ"
+      },
+      {
+        "type": "warning",
+        "value": "Перед обновлением сделайте резервную копию!"
+      }
+    ]
+  },
+  "it_2": {
+    "title": "Обслуживание ККТ Атол",
+    "category": "stores",
+    "content": [
+      {
+        "type": "text",
+        "value": "# Обслуживание ККТ Атол"
+      },
+      {
+        "type": "step",
+        "number": 1,
+        "value": "Подключите ККТ к ПК"
+      },
+      {
+        "type": "step",
+        "number": 2,
+        "value": "Запустите диагностическую утилиту"
+      }
+    ]
+  },
+  "it_3": {
+    "title": "Настройка Agent+ для ТП",
+    "category": "sales_agents",
+    "content": [
+      {
+        "type": "text",
+        "value": "# Настройка Agent+"
+      },
+      {
+        "type": "step",
+        "number": 1,
+        "value": "Скачайте Agent+ с портала"
+      },
+      {
+        "type": "step",
+        "number": 2,
+        "value": "Настройте сервер: qw1.czpt.ru, порт: 5556"
+      }
+    ]
+  },
+  "it_4": {
+    "title": "Синхронизация данных ТП",
+    "category": "sales_agents",
+    "content": [
+      {
+        "type": "text",
+        "value": "# Синхронизация"
+      },
+      {
+        "type": "step",
+        "number": 1,
+        "value": "Проверьте интернет"
+      },
+      {
+        "type": "step",
+        "number": 2,
+        "value": "Нажмите «Синхронизация»"
+      }
+    ]
+  },
+  "it_5": {
+    "title": "Перезагрузка и восстановление кассы",
+    "category": "pos",
+    "content": [
+      {
+        "type": "text",
+        "value": "# Перезагрузка кассы"
+      },
+      {
+        "type": "step",
+        "number": 1,
+        "value": "Мягкая перезагрузка через меню"
+      },
+      {
+        "type": "step",
+        "number": 2,
+        "value": "Полное отключение питания на 30 сек"
+      }
+    ]
+  },
+  "it_6": {
+    "title": "Фискальные накопители (ФН)",
+    "category": "pos",
+    "content": [
+      {
+        "type": "text",
+        "value": "# Фискальные накопители"
+      },
+      {
+        "type": "step",
+        "number": 1,
+        "value": "Проверьте срок действия ФН"
+      },
+      {
+        "type": "warning",
+        "value": "Замена ФН только при выключенном питании!"
+      }
+    ]
+  },
+  "it_7": {
+    "title": "Резервное копирование серверов",
+    "category": "servers",
+    "content": [
+      {
+        "type": "text",
+        "value": "# Резервное копирование"
+      },
+      {
+        "type": "step",
+        "number": 1,
+        "value": "Проверьте место на бэкап-хранилище"
+      },
+      {
+        "type": "step",
+        "number": 2,
+        "value": "Запустите задание бэкапа"
+      }
+    ]
+  },
+  "it_8": {
+    "title": "Мониторинг серверов Zabbix",
+    "category": "servers",
+    "content": [
+      {
+        "type": "text",
+        "value": "# Мониторинг Zabbix"
+      },
+      {
+        "type": "step",
+        "number": 1,
+        "value": "Войдите в веб-интерфейс"
+      },
+      {
+        "type": "step",
+        "number": 2,
+        "value": "Проверьте дашборд"
+      }
+    ]
+  },
+  "it_9": {
+    "title": "DNS и DHCP настройки",
+    "category": "local_settings",
+    "content": [
+      {
+        "type": "text",
+        "value": "# DNS и DHCP"
+      },
+      {
+        "type": "step",
+        "number": 1,
+        "value": "Подключитесь к маршрутизатору"
+      },
+      {
+        "type": "step",
+        "number": 2,
+        "value": "Проверьте пулы адресов"
+      }
+    ]
+  },
+  "it_10": {
+    "title": "Локальные политики безопасности",
+    "category": "local_settings",
+    "content": [
+      {
+        "type": "text",
+        "value": "# Локальные политики"
+      },
+      {
+        "type": "step",
+        "number": 1,
+        "value": "Откройте gpedit.msc"
+      },
+      {
+        "type": "step",
+        "number": 2,
+        "value": "Настройте политики паролей"
+      }
+    ]
+  }
+}

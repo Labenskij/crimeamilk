@@ -4,89 +4,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Черноморский молокозавод | Центр инструкций</title>
+    <title>Черноморский молокозавод | База знаний</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 
 <body data-theme="light">
-    <div class="container">
-        <div class="header">
-            <div class="logo-area">
-                <img class="logo-img" src="img/logo.jpg" alt="Логотип"
-                    onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 fill=%22%232d6a4b%22/%3E%3Ctext x=%2250%%22 y=%2250%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2232%22%3E%D0%A7%D0%9C%D0%97%3C/text%3E%3C/svg%3E';">
-                <div class="company">
-                    <h1>🌿 Черноморский молокозавод</h1>
-                    <p>Центр документации • инструкции и регламенты</p>
+    <div class="wiki">
+        <header class="wiki__header">
+            <div class="wiki__logo">
+                <span class="wiki__logo-icon">🥛</span>
+                <div>
+                    <h1>Черноморский молокозавод</h1>
+                    <p>База знаний • инструкции и регламенты</p>
                 </div>
             </div>
-            <div class="quick-nav">
-                <a href="#" id="appsDownloadBtn" class="app-download-btn">📱 Скачать приложения</a>
-                <a href="#depts-block">👥 Отделы</a>
-                <a href="#stores-block">🏪 Магазины</a>
-                <a href="#corp-block">🏢 Корпоративные</a>
-                <a href="#support-block">🆘 Общая инструкция</a>
-                <button class="theme-toggle" id="themeToggle">🌙</button>
+            <div class="wiki__actions">
+                <button class="btn-icon" id="appsDownloadBtn" title="Приложения">📱</button>
+                <button class="btn-icon" id="themeToggle" title="Тема">🌙</button>
             </div>
-        </div>
+        </header>
 
-        <!-- СЕКЦИИ -->
-        <div id="depts-block" class="section">
-            <div class="section-header" onclick="toggleSection(this)">
-                <div class="section-title"><span>👥</span> Инструкции по отделам</div>
-                <div class="toggle-icon">▼</div>
-            </div>
-            <div class="section-content">
-                <div id="departments-content"></div>
-            </div>
-        </div>
+        <nav class="wiki__nav">
+            <a href="#" data-section="departments">👥 Отделы</a>
+            <a href="#" data-section="corporate">🏢 Корпоративные</a>
+            <a href="#" data-section="stores">🏪 Магазины</a>
+            <a href="#" data-section="support">🆘 Поддержка</a>
+        </nav>
 
-        <div id="corp-block" class="section">
-            <div class="section-header" onclick="toggleSection(this)">
-                <div class="section-title"><span>🏢</span> Корпоративные инструкции</div>
-                <div class="toggle-icon">▼</div>
-            </div>
-            <div class="section-content">
-                <div class="grid-cards" id="corp-cards"></div>
-            </div>
-        </div>
+        <main class="wiki__content" id="dynamicContent"></main>
 
-        <div id="stores-block" class="section">
-            <div class="section-header" onclick="toggleSection(this)">
-                <div class="section-title"><span>🏪</span> Инструкции для магазинов</div>
-                <div class="toggle-icon">▼</div>
-            </div>
-            <div class="section-content">
-                <div id="stores-content"></div>
-                <div class="note">ℹ️ Все инструкции хранятся в системе</div>
-            </div>
-        </div>
-
-        <div id="support-block" class="section">
-            <div class="section-header" onclick="toggleSection(this)">
-                <div class="section-title"><span>🆘</span> Критерии помощи</div>
-                <div class="toggle-icon">▼</div>
-            </div>
-            <div class="section-content">
-                <div class="grid-cards" id="support-cards"></div>
-            </div>
-        </div>
-
-        <footer>📘 Черноморский молокозавод • 2026</footer>
+        <footer class="wiki__footer">
+            <p>© 2026 Черноморский молокозавод</p>
+        </footer>
     </div>
 
-    <!-- Модальное окно для ввода пароля IT-отдела -->
-    <div id="passwordModal" class="fullscreen-modal password-modal">
-        <div class="modal-overlay"></div>
-        <div class="modal-container">
-            <button class="modal-close">&times;</button>
+    <!-- Модалка пароля -->
+    <div id="passwordModal" class="modal">
+        <div class="modal__overlay"></div>
+        <div class="modal__card">
+            <button class="modal__close">&times;</button>
             <h3>🔐 Доступ к IT-отделу</h3>
-            <p>Введите пароль для просмотра инструкций IT-отдела</p>
-            <input type="password" id="passwordInput" class="password-input" placeholder="Введите пароль" autocomplete="off">
-            <div id="passwordError" class="password-error"></div>
-            <div class="password-actions">
-                <button id="passwordConfirmBtn" class="password-confirm">🔓 Подтвердить</button>
-                <button id="passwordCancelBtn" class="password-cancel">❌ Отмена</button>
+            <p>Введите пароль для просмотра инструкций</p>
+            <input type="password" id="passwordInput" class="modal__input" placeholder="Пароль">
+            <div id="passwordError" class="modal__error"></div>
+            <div class="modal__actions">
+                <button id="passwordConfirmBtn" class="btn btn-primary">Подтвердить</button>
+                <button id="passwordCancelBtn" class="btn btn-secondary">Отмена</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модалка приложений -->
+    <div id="appsModal" class="modal">
+        <div class="modal__overlay"></div>
+        <div class="modal__card modal__card--wide">
+            <button class="modal__close">&times;</button>
+            <h3>📱 Корпоративные приложения</h3>
+            <div id="appsModalBody"></div>
+        </div>
+    </div>
+
+    <!-- Модалка инструкций -->
+    <div id="instructionModal" class="modal modal--full">
+        <div class="modal__overlay"></div>
+        <div class="modal__card modal__card--full">
+            <button class="modal__close">&times;</button>
+            <div id="modalBreadcrumb" class="breadcrumb"></div>
+            <h3 id="modalTitle">📄 Инструкция</h3>
+            <div id="modalBody" class="modal__body markdown-body"></div>
+            <div class="modal__footer">
+                <button id="modalBackBtn" class="btn btn-secondary">← Назад</button>
+                <div>
+                    <button id="modalGoogleBtn" class="btn btn-primary">🔗 Google Docs</button>
+                    <button id="modalCloseBtn" class="btn btn-secondary">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- IT-дашборд модалка -->
+    <div id="itDashboardModal" class="modal modal--full">
+        <div class="modal__overlay"></div>
+        <div class="modal__card modal__card--dashboard">
+            <button class="modal__close">&times;</button>
+            <div class="breadcrumb" id="itBreadcrumb"><span class="breadcrumb__item active">📁 IT-библиотека</span>
+            </div>
+            <div class="dashboard__header">
+                <h3>🖥️ IT-отдел <span class="badge">Защищено</span></h3>
+                <div class="dashboard__search">
+                    <input type="text" id="itSearchInput" placeholder="🔍 Поиск..." class="dashboard__input">
+                    <button id="itClearSearch" class="dashboard__clear">✖</button>
+                </div>
+            </div>
+            <div class="dashboard__filters" id="itFilters"></div>
+            <div id="itCardsContainer" class="dashboard__cards"></div>
+            <div class="modal__footer">
+                <button id="itDashboardBackBtn" class="btn btn-secondary">← Назад</button>
+                <button id="itDashboardCloseBtn" class="btn btn-secondary">Закрыть</button>
             </div>
         </div>
     </div>

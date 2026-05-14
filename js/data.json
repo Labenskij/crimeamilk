@@ -6,50 +6,42 @@
         {
           "id": "1",
           "address": "ул. Астана Кесаева, д.20",
-          "file": "astana_kesaeva",
-          "googleDocUrl": "https://docs.google.com/document/d/1u5h9A-lZt7LSHTsAuXtrziE-5SPWgK6IjQQsan4RmRY/edit"
+          "file": "astana_kesaeva"
         },
         {
           "id": "2",
           "address": "пр-т Героев Сталинграда, д.21-А",
-          "file": "stalingrad",
-          "googleDocUrl": "https://docs.google.com/document/d/1bKZS06vTt1SVmgyigZEdI16nAOALD8DltKQ5jpiW9H0/edit"
+          "file": "stalingrad"
         },
         {
           "id": "3",
           "address": "пр-т Октябрьской Революции, д.89",
-          "file": "oktyabr",
-          "googleDocUrl": "https://docs.google.com/document/d/1jNxzEgIQjWRGyxiqgsBsETM5nPHG6YQx2vCYGRvrcL8/edit"
+          "file": "oktyabr"
         },
         {
           "id": "4",
           "address": "ул. Тараса Шевченко, д.26",
-          "file": "shevchenko",
-          "googleDocUrl": "https://docs.google.com/document/d/12zi8DP81A3dGbiGMe2Fg2UR9OP_U_nJfT-S5AeFAA0A/edit"
+          "file": "shevchenko"
         },
         {
           "id": "5",
           "address": "ул. Горпищенко, д.127",
-          "file": "gorpischenko_127",
-          "googleDocUrl": "https://docs.google.com/document/d/1x71cm1l7IvLhu7kpY43mx0MMiC5VPrYSItbLKZjSSAM/edit"
+          "file": "gorpischenko_127"
         },
         {
           "id": "6",
           "address": "ул. Горпищенко, д.139",
-          "file": "gorpischenko_139",
-          "googleDocUrl": "https://docs.google.com/document/d/1x71cm1l7IvLhu7kpY43mx0MMiC5VPrYSItbLKZjSSAM/edit"
+          "file": "gorpischenko_139"
         },
         {
           "id": "7",
           "address": "ул. Горпищенко, д.143",
-          "file": "gorpischenko_143",
-          "googleDocUrl": "https://docs.google.com/document/d/1x71cm1l7IvLhu7kpY43mx0MMiC5VPrYSItbLKZjSSAM/edit"
+          "file": "gorpischenko_143"
         },
         {
           "id": "8",
           "address": "ул. Бориса Михайлова, д.11",
-          "file": "boris_mihaylova",
-          "googleDocUrl": "https://docs.google.com/document/d/1x71cm1l7IvLhu7kpY43mx0MMiC5VPrYSItbLKZjSSAM/edit"
+          "file": "boris_mihaylova"
         }
       ]
     },
@@ -59,44 +51,37 @@
         {
           "id": "1",
           "address": "ул. Почтовая, д.43 — Алкомаркет Пятница",
-          "file": "pytnica",
-          "googleDocUrl": "https://docs.google.com/document/d/1yf7HQpdvY2PMAueTfC-QQq5-Rhg8Eb2jcUEjlHBrJzg/edit"
+          "file": "pytnica"
         },
         {
           "id": "2",
           "address": "ул. Почтовая, д.43 — №5 Эконом",
-          "file": "econom5",
-          "googleDocUrl": "https://docs.google.com/document/d/1yf7HQpdvY2PMAueTfC-QQq5-Rhg8Eb2jcUEjlHBrJzg/edit"
+          "file": "econom5"
         },
         {
           "id": "3",
           "address": "ул. Почтовая, д.43 — №8 Рыбный",
-          "file": "rybniy",
-          "googleDocUrl": "https://docs.google.com/document/d/1eF-T5f4CKJK486VEAjZUfK9X7CkM9rOp3KznZbUm3_Y/edit"
+          "file": "rybniy"
         },
         {
           "id": "4",
           "address": "ул. Димитрова, д.15 — №7 Эконом",
-          "file": "dimitrova",
-          "googleDocUrl": "https://docs.google.com/document/d/1bKZS06vTt1SVmgyigZEdI16nAOALD8DltKQ5jpiW9H0/edit"
+          "file": "dimitrova"
         },
         {
           "id": "5",
           "address": "ул. Кирова, д.83 — Burger Station",
-          "file": "burger",
-          "googleDocUrl": "https://docs.google.com/document/d/1yf7HQpdvY2PMAueTfC-QQq5-Rhg8Eb2jcUEjlHBrJzg/edit"
+          "file": "burger"
         },
         {
           "id": "6",
           "address": "ул. Кирова, д.85 — №6 Эконом",
-          "file": "kirova6",
-          "googleDocUrl": "https://docs.google.com/document/d/1yf7HQpdvY2PMAueTfC-QQq5-Rhg8Eb2jcUEjlHBrJzg/edit"
+          "file": "kirova6"
         },
         {
           "id": "7",
           "address": "ул. Ленина, д.31 — №9 Эконом",
-          "file": "lenina9",
-          "googleDocUrl": "https://docs.google.com/document/d/1-NtHTK4QuMYp7v7GYzvtzDHLdXSHaLK_EAjEZOxflZs/edit"
+          "file": "lenina9"
         }
       ]
     }
@@ -141,37 +126,11 @@
         "it_5",
         "it_6",
         "it_7",
-        "it_8",
-        "it_9",
-        "it_10",
         "it_11",
         "it_12"
       ],
       "protected": true,
-      "password": "Hesoyam1607",
       "isSpecialWindow": true
-    }
-  },
-  "itCategories": {
-    "stores": {
-      "name": "🏪 Магазины",
-      "icon": "🏪",
-      "files": ["it_1", "it_2", "it_3", "it_4"]
-    },
-    "sales_agents": {
-      "name": "🚀 Торговые агенты",
-      "icon": "🚀",
-      "files": ["it_5", "it_6"]
-    },
-    "servers": {
-      "name": "🖥️ Серверы",
-      "icon": "🖥️",
-      "files": ["it_7", "it_8"]
-    },
-    "local_settings": {
-      "name": "⚙️ Локальные настройки",
-      "icon": "⚙️",
-      "files": ["it_9", "it_10"]
     }
   },
   "corporate": {
@@ -220,18 +179,15 @@
     "corporate_1": "Установка Element",
     "corporate_2": "Microsoft Excel",
     "support_1": "Проблема с интернетом",
-    "support_2": "Не включается компьютер/касса",
+    "support_2": "Не включается компьютер",
     "support_3": "Проблемы с кассовым оборудованием",
     "it_1": "Ошибка оплаты по QR/NFC",
     "it_2": "Возможность продажи маркированного товара без сканирования кода маркировки",
     "it_3": "Выгрузка весов",
     "it_4": "Настройка VPN для удалённой работы",
-    "it_5": "Настройка активация обмена Агент +",
+    "it_5": "Настройка и активация обмена Агент+",
     "it_6": "Фискальные накопители (ФН)",
-    "it_7": "Настройка и подготовка подключения баз 1С",
-    "it_8": "Мониторинг серверов Zabbix",
-    "it_9": "DNS и DHCP настройки",
-    "it_10": "Локальные политики безопасности",
+    "it_7": "Настройка подключения баз 1С и файл hosts",
     "it_11": "Логины Element для магазинов",
     "it_12": "Поступления и возвраты (краткая инструкция)"
   },
@@ -257,43 +213,36 @@
     "support_1": "Диагностика и решение проблем с интернетом",
     "support_2": "Диагностика проблем с питанием и запуском",
     "support_3": "Устранение типовых неисправностей касс",
-    "it_1": "Настройка и обслуживание касс в торговых точках",
-    "it_2": "Решение проблем с ККТ Атол",
-    "it_3": "Установка и настройка Agent+ для торговых представителей",
-    "it_4": "Настройка синхронизации для ТП",
-    "it_5": "Инструкция по перезагрузке кассового оборудования",
-    "it_6": "Работа с фискальными накопителями",
-    "it_7": "Настройка и подготовка подключения баз 1С",
-    "it_8": "Мониторинг серверной инфраструктуры",
-    "it_9": "Настройка DNS и DHCP",
-    "it_10": "Локальные политики безопасности",
-    "it_11": "Логины Element для магазинов",
-    "it_12": "Поступления и возвраты (краткая инструкция)"
+    "it_1": "Ошибка оплаты по QR/NFC - деньги списались, чек не вышел",
+    "it_2": "Временное отключение проверки маркировки (только в крайнем случае!)",
+    "it_3": "Обновление списка товаров в весах с печатью этикеток",
+    "it_4": "VPN-подключение для доступа к корпоративным ресурсам",
+    "it_5": "Установка, активация и настройка приложения Agent+",
+    "it_6": "Замена фискального накопителя на кассовом аппарате",
+    "it_7": "Параметры подключения к базам 1С и настройка hosts",
+    "it_11": "Вход в корпоративный мессенджер Element",
+    "it_12": "Приемка и возврат товаров в приложении Агент+"
   },
   "apps": {
     "agent_plus": {
       "name": "Agent Plus",
       "description": "Приложение для торговых представителей",
-      "downloadUrl": "https://agentplus.ru/downloads/",
-      "instructions": "Сервер: qw1.czpt.ru Порт: 5556"
+      "downloadUrl": "https://agentplus.ru/downloads/"
     },
-    "rusdesk": {
+    "rustdesk": {
       "name": "RustDesk",
       "description": "Удаленный доступ и техподдержка",
-      "downloadUrl": "https://github.com/rustdesk/rustdesk/releases/tag/1.4.6",
-      "instructions": "ID сервера: =0nI9kENNRWcoNTV0VlVRtCOBR1VCVXdKl3ZxVlQmxmcQZESyFXOKZUNBVGR2JmI6ISeltmIsISdy5Cdwp3YuEzdn9yL6MHc0RHaiojIpBXYiwiI1JnL0Bnej5SM3dmI6ISehxWZyJCLiUncuQHc6NmLxc3ZiojI0N3boJye"
+      "downloadUrl": "https://rustdesk.com/"
     },
     "excel": {
       "name": "Microsoft Excel",
       "description": "Работа с таблицами",
-      "downloadUrl": "https://play.google.com/store/apps/details?id=com.microsoft.office.excel",
-      "instructions": "Войдите с корпоративной учетной записью"
+      "downloadUrl": "https://play.google.com/store/apps/details?id=com.microsoft.office.excel"
     },
     "element": {
       "name": "Element",
       "description": "Корпоративный мессенджер",
-      "downloadUrl": "https://element.io/download",
-      "instructions": "Сервер: matrix.crimeamilk.ru"
+      "downloadUrl": "https://element.io/download"
     }
   }
 }

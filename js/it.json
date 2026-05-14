@@ -154,7 +154,7 @@
   },
   "it_4": {
     "title": "Настройка VPN для удалённой работы",
-    "category": "stores",
+    "category": "servers",
     "content": [
       {
         "type": "text",
@@ -359,26 +359,69 @@
     ]
   },
   "it_7": {
-    "title": "Резервное копирование серверов",
+    "title": "Настройка подключения баз 1С и файл hosts",
     "category": "servers",
     "content": [
       {
         "type": "text",
-        "value": "# Резервное копирование серверов\n\nИнструкция по созданию резервных копий серверной инфраструктуры."
+        "value": "# Настройка и подготовка подключения баз 1С\n\nПараметры подключения к основным информационным базам предприятия."
       },
       {
         "type": "step",
         "number": 1,
-        "value": "Проверьте свободное место на бэкап-хранилище"
+        "value": "**1С:ЗУП**\n- Сервер: `1cserverbuh`\n- Имя базы: `zup_2020`"
       },
       {
         "type": "step",
         "number": 2,
-        "value": "Запустите задание резервного копирования"
+        "value": "**БП3**\n- Сервер: `1cserverbuh`\n- Имя базы: `bp_2020`"
+      },
+      {
+        "type": "step",
+        "number": 3,
+        "value": "**Информационная база КА2 (Старая база)**\n- URL: `http://192.168.1.77/ka2_2020`"
+      },
+      {
+        "type": "step",
+        "number": 4,
+        "value": "**K2 01.2026**\n- Сервер: `1CServerMain`\n- Имя базы: `ka2_2020`"
+      },
+      {
+        "type": "step",
+        "number": 5,
+        "value": "**К2 без VPN**\n- URL: `http://gw1.czpt.ru:8185/ka2_2020`"
+      },
+      {
+        "type": "text",
+        "value": "---"
+      },
+      {
+        "type": "text",
+        "value": "## 📁 Файл hosts\n\n**Путь:** `C:\\Windows\\System32\\drivers\\etc\\hosts`\n\n> ⚠️ **Важно:** Для редактирования файла откройте Блокнот от имени администратора."
+      },
+      {
+        "type": "text",
+        "value": "### 🖥️ Сервера 1С\n\n| IP-адрес | Имя сервера |\n|----------|-------------|\n| `192.168.1.43` | `1CServerDev` |\n| `192.168.1.23` | `1CServerMain` |\n| `192.168.1.26` | `1cserverbuh` |"
+      },
+      {
+        "type": "text",
+        "value": "### 🚫 Блокировка нежелательных хостов\n\n| IP-адрес | Домен |\n|----------|-------|\n| `0.0.0.0` | `api.regserver.ritlabs.com` |\n| `0.0.0.0` | `www.aomeitech.com` |"
+      },
+      {
+        "type": "text",
+        "value": "### 🌐 Локальные тестовые хосты\n\n| IP-адрес | Домен |\n|----------|-------|\n| `127.0.0.1` | `localhost` |\n| `127.0.0.1` | `test1.ru` |\n| `127.0.0.1` | `www.test1.ru` |\n| `127.0.0.1` | `subdomain.localhost` |\n| `127.0.0.1` | `www.subdomain.localhost` |\n| `127.0.0.1` | `subdomain.test1.ru` |\n| `127.0.0.1` | `www.subdomain.test1.ru` |\n| `127.0.0.2` | `custom-host` |\n| `127.0.0.2` | `www.custom` |"
+      },
+      {
+        "type": "text",
+        "value": "### 📝 Полный пример содержимого `hosts`\n\n```\n# Сервера 1С\n192.168.1.43 1CServerDev\n192.168.1.23 1CServerMain\n192.168.1.26 1cserverbuh\n\n# Блокировка\n0.0.0.0 api.regserver.ritlabs.com\n0.0.0.0 www.aomeitech.com\n\n# Локальные хосты\n127.0.0.1 localhost\n127.0.0.1 test1.ru\n127.0.0.1 www.test1.ru\n127.0.0.1 subdomain.localhost\n127.0.0.1 www.subdomain.localhost\n127.0.0.1 subdomain.test1.ru\n127.0.0.1 www.subdomain.test1.ru\n127.0.0.2 custom-host\n127.0.0.2 www.custom\n```"
       },
       {
         "type": "note",
-        "value": "📌 Регулярно проверяйте успешность выполнения бэкапов и целостность сохранённых данных."
+        "value": "📌 **Примечание:**\n- `1CServerDev` — сервер для разработки\n- `1CServerMain` — основной сервер 1С\n- `1cserverbuh` — сервер для бухгалтерских баз\n- Блокировка `ritlabs.com` и `aomeitech.com` отключает проверку лицензий и обновлений для некоторых программ"
+      },
+      {
+        "type": "warning",
+        "value": "⚠️ После редактирования файла `hosts` изменения вступают в силу **немедленно**. Для очистки DNS-кэша выполните в командной строке: `ipconfig /flushdns`"
       }
     ]
   },
@@ -470,7 +513,7 @@
     "content": [
       {
         "type": "text",
-        "value": "# Логины Element для магазинов\n\nИнструкция по входу в корпоративный мессенджер **Element** для сотрудников магазинов.\n\n> ✅ **Всё готово:** аккаунты созданы, группы подключены. По просьбе Курганной выдаю доступ.\n\n---\n\n## 🔐 Общая информация\n\n| Параметр | Значение |\n|----------|----------|\n| **Сервер** | `matrix.crimeamilk.ru` |\n| **Пароль** | `Hesoyam1607+` |\n\n---\n\n## 👤 Логины по магазинам\n\n### Севастополь\n\n| Магазин | Логин | Шифрование (восстановление) |\n|---------|-------|-----------------------------|\n| ул. Тараса Шевченко, д.26 | `taras-shevchenko-store` | `EsTu W9ot ZScS 8Weo LUcK 1LTv UAdk 4WGP e1vh yLvK 5kyU oh7b` |\n| ул. Астана Кесаева, д.20 | `astana-kesaeva` | `EsTz nKjo 7kXH x6Pk uCDZ Y9vL 7aNF 3G7Y QqEF w48w zhx7 3pSX` |\n| пр-т Героев Сталинграда, д.21-А | `heroes-of-stalingrad-avenue` | `EsTE uHPT UJnn PgsE 4H67 VRyf 7Er9 dXb7 7Rwc YXMY Wb1m H3Jo` |\n| пр-т Октябрьской Революции, д.89 | `october-revolution` | `EsTW kamX xeNV WCMc MReF hDzJ xjNz dY4A xZrD qX8C Tb1h AURX` |\n| ул. Бориса Михайлова, д.11 | `boris-mikhailov` | `EsU9 H5ku Qutm 3DB1 ZN5r FdVy vEN6 GFSs xP8c HE51 gCxk 6737` |\n| ул. Горпищенко, д.127 | `gorpischenko-127` | `EsU2 X99C fXVR 21dF Q9Ks oXsg pMzo iQWk NPu2 5F18 UUnH wjT6` |\n| ул. Горпищенко, д.139 | `gorpischenko-139` | `EsU5 6kiq YFko zn8a c9US zDys uvYp LjtL MRXD JS7w APuR ERCK` |\n| ул. Горпищенко, д.142 | `gorpischenko-142` | `EsUG AuC6 7Jg4 831o fYeu r9wa Y1TY dJV8 HtTN y6S6 mwa6 MF6d` |\n\n---\n\n## 📥 Как войти в Element\n\n### На компьютере:\n\n1. Скачайте Element: [https://element.io/download](https://element.io/download)\n2. Запустите программу\n3. Нажмите **«Войти»** → **«Редактировать»** → **«Другой домашний сервер»**\n4. Введите сервер: `matrix.crimeamilk.ru`\n5. Введите **логин** из таблицы выше и **пароль** `Hesoyam1607+`\n6. При запросе **ключа шифрования** — используйте код из таблицы\n\n### На телефоне:\n\n1. Скачайте Element из App Store или Google Play\n2. **«Войти вручную»** → **«Сменить поставщика»** → **«Другое»**\n3. Сервер: `matrix.crimeamilk.ru`\n4. Логин и пароль по таблице\n\n---\n\n## 💬 Основные чаты для магазинов\n\n| Комната | Назначение |\n|---------|------------|\n| **#магазины-севастополь** | #czpt-stores:matrix.crimeamilk.ru | Общий чат магазинов Севастополя |\n| **#ит-поддержка** | #ChZPT-technical-support:matrix.crimeamilk.ru | Заявки в IT (проблемы с кассами, интернетом) |\n| **#общая-чзрт** | #chat-czpt:matrix.crimeamilk.ru | Общий чат компании |\n\n---\n\n## ❗ Частые проблемы\n\n### Неправильный пароль?\n- Пароль един для всех: `Hesoyam1607+` (обратите внимание на **плюс** в конце и заглавную **H**)\n\n### Просит ключ шифрования?\n- Введите **шифрование** из таблицы (можно скопировать и вставить)\n\n### Не могу найти свою комнату?\n- Нажмите на значок **«+»** → **«Присоединиться к комнате»** → введите название\n\n---\n\n## 📞 Поддержка\n\n| Вопрос | Контакт |\n|--------|---------|\n| Проблемы с входом | IT-отдел (1034) |\n| Нет доступа к чату | 4-я Бастионная улица, 36 |\n| Не работает Element | labenskiysp@crimeamilk.ru |\n\n---\n\n> ⚠️ **Важно:** Не передавайте логины и пароли третьим лицам! Это корпоративная информация."
+        "value": "# Логины Element для магазинов\n\nИнструкция по входу в корпоративный мессенджер **Element** для сотрудников магазинов.\n\n> ✅ **Всё готово:** аккаунты созданы, группы подключены. По просьбе Курганной выдаю доступ.\n\n---\n\n## 🔐 Общая информация\n\n| Параметр | Значение |\n|----------|----------|\n| **Сервер** | `matrix.crimeamilk.ru` |\n| **Пароль** | `Hesoyam1607+` |\n\n---\n\n## 👤 Логины по магазинам\n\n### Севастополь\n\n| Магазин | Логин | Шифрование (восстановление) |\n|---------|-------|-----------------------------|\n| ул. Тараса Шевченко, д.26 | `taras-shevchenko-store` | `EsTu W9ot ZScS 8Weo LUcK 1LTv UAdk 4WGP e1vh yLvK 5kyU oh7b` |\n| ул. Астана Кесаева, д.20 | `astana-kesaeva` | `EsTz nKjo 7kXH x6Pk uCDZ Y9vL 7aNF 3G7Y QqEF w48w zhx7 3pSX` |\n| пр-т Героев Сталинграда, д.21-А | `heroes-of-stalingrad-avenue` | `EsTE uHPT UJnn PgsE 4H67 VRyf 7Er9 dXb7 7Rwc YXMY Wb1m H3Jo` |\n| пр-т Октябрьской Революции, д.89 | `october-revolution` | `EsTW kamX xeNV WCMc MReF hDzJ xjNz dY4A xZrD qX8C Tb1h AURX` |\n| ул. Бориса Михайлова, д.11 | `boris-mikhailov` | `EsU9 H5ku Qutm 3DB1 ZN5r FdVy vEN6 GFSs xP8c HE51 gCxk 6737` |\n| ул. Горпищенко, д.127 | `gorpischenko-127` | `EsU2 X99C fXVR 21dF Q9Ks oXsg pMzo iQWk NPu2 5F18 UUnH wjT6` |\n| ул. Горпищенко, д.139 | `gorpischenko-139` | `EsU5 6kiq YFko zn8a c9US zDys uvYp LjtL MRXD JS7w APuR ERCK` |\n| ул. Горпищенко, д.142 | `gorpischenko-142` | `EsUG AuC6 7Jg4 831o fYeu r9wa Y1TY dJV8 HtTN y6S6 mwa6 MF6d` |\n\n### Черноморское и другие локации\n\n| Магазин / Объект | Логин | Шифрование (восстановление) |\n|------------------|-------|-----------------------------|\n| Склад (Почтовая 43) | `sklad-poch43` | `EsUE K3rS CWZm zsjt bRmB qbxQ kCDc uV9a Hmuk 2sPx rP3z Lz3x` |\n| Алкомаркет Пятница (Почтовая 43) | `cher-pyatnica-43` | `EsTr ZZ2p MApA aGf3 Y1JW g3rU FjzX sMGE RRby EztQ Z8xP Wnja` |\n| Магазин №5 Эконом, Магазин №8 Рыбный (Почтовая 43) | `cher-mag5-mag8-43` | `EsU8 9kPc sXkU cCR4 V9Gc KsSs V2Un DyYp AhBK S51v KAQ4 BmDa` |\n| Магазин №7 Эконом (Димитрова 15) | `cher-mag7-15` | `EsUC pX2x Nh8p mZF3 j93n sv72 TG96 57km dR6v WTgB Xv6Z hdmX` |\n| Кафе Burger Station (Кирова 83), Магазин №6 Эконом (Кирова 85) | `cher-burger-83-mag6-85` | `EsTp qkgx RLPw rKeo vQzy yhkA bUM8 TaFc coFg Yssn 8Fr1 1XEH` |\n| с. Новосельское, Магазин №9 Эконом (Ленина 31) | `nov-mag9-31` | `EsTR cMzk QoVT KXMb Xosz i7He BxjV V5dN DFUc N9gQ Qfcu 6b1t` |\n\n---\n\n## 📥 Как войти в Element\n\n### На компьютере:\n\n1. Скачайте Element: [https://element.io/download](https://element.io/download)\n2. Запустите программу\n3. Нажмите **«Войти»** → **«Редактировать»** → **«Другой домашний сервер»**\n4. Введите сервер: `matrix.crimeamilk.ru`\n5. Введите **логин** из таблицы выше и **пароль** `Hesoyam1607+`\n6. При запросе **ключа шифрования** — используйте код из таблицы\n\n### На телефоне:\n\n1. Скачайте Element из App Store или Google Play\n2. **«Войти вручную»** → **«Сменить поставщика»** → **«Другое»**\n3. Сервер: `matrix.crimeamilk.ru`\n4. Логин и пароль по таблице\n\n---\n\n## 💬 Основные чаты для магазинов\n\n| Комната | Назначение |\n|---------|------------|\n| **#магазины-севастополь** | #czpt-stores:matrix.crimeamilk.ru | Общий чат магазинов Севастополя |\n| **#ит-поддержка** | #ChZPT-technical-support:matrix.crimeamilk.ru | Заявки в IT (проблемы с кассами, интернетом) |\n| **#общая-чзрт** | #chat-czpt:matrix.crimeamilk.ru | Общий чат компании |\n\n---\n\n## ❗ Частые проблемы\n\n### Неправильный пароль?\n- Пароль един для всех: `Hesoyam1607+` (обратите внимание на **плюс** в конце и заглавную **H**)\n\n### Просит ключ шифрования?\n- Введите **шифрование** из таблицы (можно скопировать и вставить)\n\n### Не могу найти свою комнату?\n- Нажмите на значок **«+»** → **«Присоединиться к комнате»** → введите название\n\n---\n\n## 📞 Поддержка\n\n| Вопрос | Контакт |\n|--------|---------|\n| Проблемы с входом | IT-отдел (1034) |\n| Нет доступа к чату | 4-я Бастионная улица, 36 |\n| Не работает Element | labenskiysp@crimeamilk.ru |\n\n---\n\n> ⚠️ **Важно:** Не передавайте логины и пароли третьим лицам! Это корпоративная информация."
       }
     ]
   },
